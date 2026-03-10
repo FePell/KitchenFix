@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Malfunction;
 use Illuminate\Http\Request;
 
-class StaffController extends Controller
+class StaffProductController extends Controller
 {
     public function index()
     {

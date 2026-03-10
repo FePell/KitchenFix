@@ -18,96 +18,6 @@ body{
 }
 /* ---------------------------------------------------------------- */
 
-
-/* MAIN */
-.staff-page {
-    padding: 30px;
-}
-.staff-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-.staff-title {
-    margin: 0;
-    font-size: 26px;
-}
-.add-product-btn {
-    padding: 10px 18px;
-    border: 1px solid #7f9db9;
-    background: #bcd0e5;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.add-product-btn:hover {
-    background: #a9c3dd;
-}
-.staff-container {
-    border: 1px solid #aaa;
-    padding: 30px;
-    background: #f5f5f5;
-    min-height: 500px;
-}
-.product-card {
-    border: 1px solid #777;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-.product-info {
-    width: 140px;
-}
-.product-name {
-    margin-bottom: 10px;
-}
-.product-image-box {
-    width: 70px;
-    height: 90px;
-    border: 2px solid #777;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.product-box {
-    width: 180px;
-    height: 110px;
-    border: 1px solid #777;
-    border-radius: 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.actions-box {
-    width: 140px;
-    height: 110px;
-    border: 1px solid #777;
-    border-radius: 15px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-.action-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-.pagination-dots {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 22px;
-}
-
 /* Login ---------------------------------------------------------- */ /*Livello 1-2-3-4*/
 .auth-page {
     min-height: 100vh;
@@ -181,7 +91,7 @@ body{
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.auth-btn:hover {
+.auth-btn:hover { 
     background-color: #2d5b93;
 }
 .auth-btn:active {
@@ -226,6 +136,7 @@ body{
 }
 .nav-right {
     justify-content: flex-end;
+    gap: 12px;
 }
 .nav-logo img {
     height: 64px;
@@ -242,15 +153,11 @@ body{
     font-weight: 600;
     transition: all 0.25s ease;
     background-color: transparent;
+    white-space: nowrap;
 }
 .nav-link:hover {
-    background-color: #163a6b;
+    background-color: #2d5b93;
     color: white;
-}
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 .nav-username {
     color: #163a6b;
@@ -259,9 +166,7 @@ body{
     padding: 10px 14px;
     border-radius: 999px;
     border: 1px solid #d9e2ec;
-}
-.logout-form {
-    margin: 0;
+    white-space: nowrap;
 }
 .nav-button {
     border: none;
@@ -273,20 +178,24 @@ body{
     transition: all 0.25s ease;
     display: inline-block;
     font-size: 15px;
+    white-space: nowrap;
 }
-.login-btn {
-    background-color: #f28c28;
+.login-btn { /*5*/
+    background-color: #f59e0b;
     color: white;
 }
-.login-btn:hover {
-    background-color: #d97412;
+.login-btn:hover { /*6*/
+    background-color: #d97706;
 }
-.logout-btn {
-    background-color: #f28c28;
+.logout-btn { /*5*/
+    background-color: #f59e0b;
     color: white;
 }
-.logout-btn:hover {
-    background-color: #d97412;
+.logout-btn:hover { /*6*/
+    background-color: #d97706;
+}
+.logout-form {
+    margin: 0;
 }
 /* ---------------------------------------------------------------- */
 
@@ -380,8 +289,8 @@ body{
   font-weight: 700;
   transition: 0.25s ease;
 }
-.btn-catalogo:hover {
-  background-color: #2d5b93;
+.btn-catalogo:hover { /*2*/
+  background-color: #0f2b50;;
 }
 /* ------------------------------------------ */
 /* ---------------------------------------------------------------- */
@@ -471,6 +380,14 @@ body{
   margin-top: 20px; 
   margin-bottom: 50px;
 }
+.products-main {
+    flex: 1;
+}
+.products-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .search-form{
   display: flex;
   gap: 10px;
@@ -485,8 +402,8 @@ body{
     font-size: 16px;
     outline: none;
 }
-.search-form input:focus {
-    border-color: #4d6392;
+.search-form input:focus { /*9*/
+    border-color: #2563eb;
 }
 .search-form button {
     padding: 12px 20px;
@@ -498,64 +415,17 @@ body{
     font-size: 16px;
     transition: 0.3s;
 }
-.search-form button:hover {
-    background-color: #163a6b;
+.search-form button:hover { /*2*/
+    background-color: #0f2b50;
 }
-.products-layout {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-}
-.products-sidebar {
-    width: 250px;
-    background: white;
-    padding: 25px 20px;
-    border-radius: 16px;
-    border: 1px solid #dde0e4;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    flex-shrink: 0;
-    position: sticky; /*Fa si che la sidebar "segua" lo scroll*/
-    top: 120px;
-}
-.products-sidebar h3 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    color: #111827;
-}
-.categories-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.categories-list li {
-    margin-bottom: 12px;
-}
-.categories-list a {
-    display: block;
-    text-decoration: none;
-    color: #374151;
-    background-color: #f3f4f6;
-    padding: 12px 14px;
-    border-radius: 10px;
-    transition: 0.3s;
+.search-error {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    color: #b91c1c;
     font-weight: 500;
 }
-.categories-list a:hover {
-    background-color: #163a6b;
-    color: white;
-}
-.categories-list a.active {
-    background-color: #d1d5db;
-    font-weight: 600;
-}
-.products-main {
-    flex: 1;
-}
-.products-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+
 /* Singolo prodotto --------------- */ /*Livello 1-2*/
 .product-card {
     display: flex;
@@ -583,11 +453,6 @@ body{
     color: #4b5563;
     line-height: 1.6;
 }
-.product-tech {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #e5e7eb;
-}
 .product-card-image {
     width: 220px;
     height: 220px;
@@ -609,47 +474,134 @@ body{
     flex: 1;
     min-width: 0;
 }
-/* -------------------------------- */
+.reset-products-search {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.reset-products-btn { /*7*/ 
+    background-color: #9b2020;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.reset-products-btn:hover { /*4*/
+    background-color: #7f1d1d;
+}
+
 /* Malfunzionamenti --------------- */ /*Livello 2*/
-.product-malfunctions {
+.product-malfunctions-btn { /*8*/
+    background-color: #163a6b;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.product-malfunctions-btn:hover { /*2*/
+    background-color: #0f2b50;
+}
+.section-malfunctions-page {
+    padding: 10px 0 40px;
+    background-color: #f5f5f5ef;
+}
+.malfunctions-page-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #1f2937;
+}
+.malfunctions-search {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.malfunctions-search-form {
+    display: flex;
+    gap: 10px;
     width: 100%;
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid #e5e7eb;
-    display: block;
+    max-width: 700px;
 }
-.product-malfunctions h4 {
-    margin: 0 0 12px 0;
-    font-size: 20px;
-    color: #111827;
+.malfunctions-search-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
 }
-.malfunctions-list {
+.malfunctions-search-form input:focus {
+    border-color: #2563eb;
+}
+.malfunctions-search-form button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #163a6b;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.malfunctions-search-form button:hover {
+    background-color: #0f2b50;
+}
+.malfunctions-grid {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    gap: 20px;
 }
-.malfunction-item {
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    background-color: #e6f1fc;
-    border: 1px solid #d8f0ff;
-    border-radius: 14px;
-    padding: 14px 18px;
+.malfunction-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #dde0e4;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.malfunction-description {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #111827;
+}
+.malfunction-solution {
     color: #4b5563;
-    line-height: 1.5;
+    line-height: 1.6;
 }
-.empty-malfunction {
-    background-color: #e6f1fc;
-    color: #475569;
-    font-style: italic;
+.no-malfunctions {
+    text-align: center;
+    font-size: 18px;
+    color: #6b7280;
 }
-.malfunction-item p {
-    margin: 0 0 8px 0;
+.back-to-products {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
 }
-.malfunction-item p:last-child {
-    margin-bottom: 0;
+.back-products-btn { /*7*/
+    background-color: #9b2020;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.back-products-btn:hover { /*4*/
+    background-color: #7f1d1d;
 }
 /* ---------------------------------------------------------------- */
 
@@ -747,22 +699,26 @@ body{
     border: none;
     transition: 0.2s ease;
 }
-.btn-edit {
+.btn-edit { /*1*/
     background-color: #163a6b;
     color: white;
 }
-.btn-delete {
+.btn-edit:hover { /*2*/
+    background-color: #0f2b50;
+}
+.btn-delete { /*3*/
     background-color: #9b2020;
     color: white;
 }
-.btn-add-malfunction {
+.btn-delete:hover { /*4*/
+    background-color: #7f1d1d;
+}
+.btn-add-malfunction { /*5*/
     background-color: #f59e0b;
     color: white;
 }
-.btn-edit:hover,
-.btn-delete:hover,
-.btn-add-malfunction:hover {
-    opacity: 0.9;
+.btn-add-malfunction:hover { /*6*/
+    background-color: #d97706;
 }
 /* ---------------------------------------------------------------- */
 
@@ -806,7 +762,7 @@ body{
     outline: none;
     box-sizing: border-box;
 }
-.staff-form-group input:focus {
+.staff-form-group input:focus { /*9*/
     border-color: #2563eb;
 }
 .staff-form-actions {
@@ -814,27 +770,309 @@ body{
     gap: 12px;
     margin-top: 25px;
 }
-.btn-save {
+.btn-save { /*8*/
     background-color: #163a6b;
     color: white;
     border: none;
+    text-decoration: none;
+    text-align: center;
     padding: 10px 18px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 600;
 }
-.btn-cancel-link {
-    display: inline-block;
+.btn-save:hover { /*2*/
+    background: #0f2b50;
+}
+.btn-cancel-link { /*7*/
     background-color: #9b2020;
     color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     padding: 10px 18px;
     border-radius: 10px;
     font-size: 14px;
+    font-weight: 600;
 }
-.form-error {
+.btn-cancel-link:hover { /*4*/
+    background-color: #7f1d1d;
+}
+.form-error { /*In comune con admin*/
     color: #dc2626;
     margin-top: 6px;
     font-size: 14px;
 }
+/* ---------------------------------------------------------------- */
+
+/* Sezione Prodotti Amministratore -------------------------------- */ /*Livello 4*/
+.admin-products-section { /*A*/
+    padding: 10px 0;
+    background-color: #f8f9fb;
+}
+.admin-page-title{ /*Stesso per sezione Centri*/
+    text-align: center;
+    font-size:36px;
+    color:#1f2937;
+    margin-bottom: 30px;
+}
+.admin-btn-add { /*Stesso per sezione Centri*/
+    display: block;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    padding: 12px 20px;
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+.admin-btn-add:hover { /*6*/
+    background-color: #d97706;
+}
+.admin-product-card {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eceff3;
+}
+.admin-product-title {
+    font-size: 30px;
+    margin-bottom: 24px;
+    color: #111827;
+    font-weight: 700;
+}
+.admin-product-body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 36px;
+}
+.admin-product-left {
+    flex: 1;
+    min-width: 0;
+}
+.admin-product-right {
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 16px;
+}
+.admin-product-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    display: block;
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+.admin-table tbody tr:last-child {
+    border-bottom: none;
+}
+.admin-table th {
+    width: 150px;
+    text-align: left;
+    vertical-align: top;
+    padding: 14px 16px 14px 0;
+    font-weight: 700;
+    color: #111827;
+}
+.admin-table td {
+    padding: 14px 0;
+    color: #374151;
+    line-height: 1.7;
+}
+.admin-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+}
+.admin-actions form {
+    margin: 0;
+}
+.admin-btn-edit,
+.admin-btn-delete { /*Stesso per sezione Centri*/
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+.admin-btn-edit { /*1*/ /*Stesso per sezione Centri*/
+    background-color: #163a6b;
+    color: white;
+}
+.admin-btn-edit:hover { /*2*/
+    background-color: #0f2b50;
+}
+.admin-btn-delete { /*3*/ /*Stesso per sezione Centri*/
+    background-color: #9b2020;
+    color: white;
+}
+.admin-btn-delete:hover { /*4*/
+    background-color: #7f1d1d;
+}
+
+/* Pagina modifica/aggiunta Prodotti/Centri --------------- */
+.admin-form-section {
+    padding: 50px 0;
+    background-color: #f8f9fb;
+}
+.admin-form-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.admin-form-title {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+.admin-form-subtitle {
+    color: #4b5563;
+    margin-bottom: 25px;
+}
+.admin-form-group {
+    margin-bottom: 20px;
+}
+.admin-form-group label {
+    display: block;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+.admin-form-group input,
+.admin-form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+.admin-form-group input:focus, /*9*/
+.admin-form-group textarea:focus {
+    border-color: #2563eb;
+}
+.admin-form-group textarea {
+    resize: vertical;
+}
+.admin-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+.admin-btn-save { /*8*/
+    background-color: #163a6b;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.admin-btn-save:hover { /*2*/
+    background-color: #0f2b50;
+}
+.admin-btn-cancel-link { /*7*/
+    background-color: #9b2020;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.admin-btn-cancel-link:hover { /*4*/
+    background-color: #7f1d1d;
+}
+.admin-image-preview {
+    margin-top: 10px;
+}
+.admin-image-preview-img {
+    width: 180px;
+    border-radius: 10px;
+    display: block;
+}
+.admin-form-error {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #dc2626;
+}
+.admin-form-help {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #6b7280;
+}
+/* -------------------------------------------------- */
+/* ---------------------------------------------------------------- */
+
+/* Sezione Tecnici Amministratore --------------------------------- */ /*Livello 4*/
+/* ---------------------------------------------------------------- */
+
+/* Sezione Centri Amministratore ---------------------------------- */ /*Livello 4*/
+.admin-centers-section { /*A*/
+    padding: 10px 0;
+    background-color: #f8f9fb;
+}
+.admin-centers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.admin-center-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+.admin-center-title {
+    font-size: 24px;
+    color: #111827;
+    margin-bottom: 18px;
+}
+.admin-center-info {
+    margin-bottom: 30px;
+    color: #374151;
+}
+.admin-center-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Sezione Aggiungi/Modifica Prodotto --------------- */
+
+/* -------------------------------------------------- */
 /* ---------------------------------------------------------------- */

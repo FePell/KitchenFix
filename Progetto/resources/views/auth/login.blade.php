@@ -1,9 +1,9 @@
 @extends('layouts.public')
 
+{{-- Livello 1 ------------------------------------------------------------------------------ --}}
 @section('content')
 
 <div class="auth-page">
-
     <div class="auth-card-simple">
 
         <h2>Accedi</h2>
@@ -16,9 +16,11 @@
             </div>
         @endif
 
+        
         <form method="POST" action="{{ route('login') }}" class="auth-form-inner">
             @csrf
 
+            {{-- Inserimento dati ----------------------------------------------------------- --}}
             <label class="auth-label" for="username">Username</label>
             <input
                 id="username"
@@ -37,16 +39,16 @@
                 name="password"
                 required
                 class="auth-input"
-            >
+            />
+            {{-- ---------------------------------------------------------------------------- --}}
 
             <button type="submit" class="auth-btn">
                 Accedi
             </button>
 
         </form>
-
     </div>
-
 </div>
 
 @endsection
+{{-- ---------------------------------------------------------------------------------------- --}}

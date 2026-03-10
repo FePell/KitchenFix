@@ -10,9 +10,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
-        'category',
-        'image',
         'installation',
+        'image',
     ];
 
     public function staffTechnicians()

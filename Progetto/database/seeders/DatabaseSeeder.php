@@ -6,6 +6,14 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+//Il file Seeder serve solo per inserire dati iniziali nel database quando si esegue php artisan db:seed
+//Il Seeder non si aggiorna automaticamente quando si modificano i dati dal sito
+//Il Seeder è solo uno script di inserimento iniziale dei dati nel database
+
+/*Se eseguiamo php artisan migrate:fresh --seed, verranno cancellate tutte le tabelle ed eventuali
+modifiche fatte tramite il sito, e nel database verranno reinseriti i dati presenti nel Seeder*/
+
+//Questo file è modificabile SOLO a mano, non tramite i pulsanti "Modifica/Elimina X" presenti nel sito
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
@@ -54,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Mario',
             'last_name' => 'Rossi',
             'birth_date' => '1990-05-10',
-            'specialization' => 'Frigoriferi', //
+            'specialization' => 'Frigoriferi', 
             'assistance_center_id' => $centerId,
             'created_at' => now(),
             'updated_at' => now(),
@@ -92,43 +100,40 @@ class DatabaseSeeder extends Seeder
         //Prodotto ------------------------------------------------------------
         $product1 = DB::table('products')->insertGetId([ //Chiedere perchè product1 e non productId
             'name' => 'Cappa Glem Gas',
-            'description' => 'Comandi a pulsante 1 motore, Aspirazione 498 m3/h, 
-            Filtro metallico antigrasso lavabile in lavastoviglie, 
-            Filtri carbone 3 velocità 2 lampade led da 4 W Rumorosità 67 db(A)',
-            'category' => 'Cappa',
+            'description' => 'Comandi a pulsante 1 motore, aspirazione 498 m3/h, 
+            filtro metallico antigrasso lavabile in lavastoviglie, 
+            filtri carbone 3 velocità 2 lampade led da 4 W Rumorosità 67 db(A)',
             'image' => 'cappa1.png',
             'installation' => 'Posizionarla sopra il piano cottura,
-            Fissare la cappa con le viti,
-            Collegare il tubo di aspirazione,
-            Collegarla alla corrente e verificare che funzioni.',
+            fissare la cappa con le viti,
+            collegare il tubo di aspirazione,
+            collegarla alla corrente e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product2 = DB::table('products')->insertGetId([
             'name' => 'Cappa Faber Cooker',
-            'description' => 'Comandi a pulsante Profilo slim - 4 cm 1 motore, Aspirazione 650 m³/h, 
-            Filtri metallici antigrasso lavabili in lavastoviglie 
-            Filtri carbone 3 velocità 2 spot led da 2 W Rumorosità 68 db(A)',
-            'category' => 'Cappa',
+            'description' => 'Comandi a pulsante Profilo slim - 4 cm 1 motore, aspirazione 650 m³/h, 
+            filtri metallici antigrasso lavabili in lavastoviglie 
+            filtri carbone 3 velocità 2 spot led da 2 W Rumorosità 68 db(A)',
             'image' => 'cappa2.png',
             'installation' => 'Posizionarla sopra il piano cottura,
-            Fissare la cappa con le viti,
-            Collegare il tubo di aspirazione,
-            Collegarla alla corrente e verificare che funzioni.',
+            fissare la cappa con le viti,
+            collegare il tubo di aspirazione,
+            collegarla alla corrente e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product3 = DB::table('products')->insertGetId([
             'name' => 'Forno Whirlpool',
-            'description' => 'Forno multifunzione Inox 11 funzioni classe A+ 71Lt, Pirolisi e Idrolisi',
-            'category' => 'Forno',
+            'description' => 'Forno multifunzione Inox 11 funzioni classe A+ 71Lt, pirolisi e idrolisi',
             'image' => 'forno1.png',
             'installation' => 'Inserire il forno nel mobile della cucina,
-            Collegarlo alla corrente,
-            Fissarlo con le viti,
-            Accenderlo e verificare che funzioni.',
+            collegarlo alla corrente,
+            fissarlo con le viti,
+            accenderlo e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -136,12 +141,11 @@ class DatabaseSeeder extends Seeder
         $product4 = DB::table('products')->insertGetId([
             'name' => 'Forno Hotpoint Ariston',
             'description' => 'Tecnologia elettrica avanzata per cucinare risparmiando energia',
-            'category' => 'Forno',
             'image' => 'forno2.png',
             'installation' => 'Inserire il forno nel mobile della cucina,
-            Collegarlo alla corrente,
-            Fissarlo con le viti,
-            Accenderlo e verificare che funzioni.',
+            collegarlo alla corrente,
+            fissarlo con le viti,
+            accenderlo e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -150,12 +154,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Frigorifero LG Electronics',
             'description' => 'Ripiani in vetro, robusti ed eleganti al tempo stesso. 
             Comodo porta-bottiglie per conservarle con sicurezza',
-            'category' => 'Frigorifero',
             'image' => 'frigo1.png',
             'installation' => 'Posizionarlo nello spazio della cucina,
-            Collegarlo alla presa elettrica,
-            Attendere qualche ora prima di accenderlo,
-            Impostare la temperatura e verificare che raffreddi.',
+            collegarlo alla presa elettrica,
+            attendere qualche ora prima di accenderlo,
+            impostare la temperatura e verificare che raffreddi.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -164,12 +167,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Frigorifero Hotpoint Ariston',
             'description' => 'Ripiani con finiture metalliche e vassoio scorrevole nel freezer.
             Display smooth touch',
-            'category' => 'Frigorifero',
             'image' => 'frigo2.png',
             'installation' => 'Posizionarlo nello spazio della cucina,
-            Collegarlo alla presa elettrica,
-            Attendere qualche ora prima di accenderlo,
-            Impostare la temperatura e verificare che raffreddi.',
+            collegarlo alla presa elettrica,
+            attendere qualche ora prima di accenderlo,
+            impostare la temperatura e verificare che raffreddi.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -177,12 +179,11 @@ class DatabaseSeeder extends Seeder
         $product7 = DB::table('products')->insertGetId([
             'name' => 'Microonde Whirlpool',
             'description' => 'Funzione Jet Defrost per uno sbrinamento eccezionalmente rapido e uniforme',
-            'category' => 'Microonde',
             'image' => 'micro1.png',
             'installation' => 'Posizionarlo su una superficie stabile,
-            Lasciare spazio per la ventilazione,
-            Collegarlo alla presa elettrica,
-            Impostare orologio e potenza e verificare che funzioni.',
+            lasciare spazio per la ventilazione,
+            collegarlo alla presa elettrica,
+            impostare orologio e potenza e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -190,12 +191,11 @@ class DatabaseSeeder extends Seeder
         $product8 = DB::table('products')->insertGetId([
             'name' => 'Microonde Pro Whirlpool',
             'description' => 'Funzione grill e funzione Jet Defrost per uno sbrinamento eccezionalmente rapido e uniforme.',
-            'category' => 'Microonde',
             'image' => 'micro2.png',
             'installation' => 'Posizionarlo su una superficie stabile,
-            Lasciare spazio per la ventilazione,
-            Collegarlo alla presa elettrica,
-            Impostare orologio e potenza e verificare che funzioni.',
+            lasciare spazio per la ventilazione,
+            collegarlo alla presa elettrica,
+            impostare orologio e potenza e verificare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -203,12 +203,11 @@ class DatabaseSeeder extends Seeder
         $product9 = DB::table('products')->insertGetId([
             'name' => 'Piano Cottura Whirlpool',
             'description' => 'Fornelli ad alta efficienza, per ridurre il consumo di energia.',
-            'category' => 'PianoCottura',
             'image' => 'piano1.png',
             'installation' => 'Inserirlo nel foro del piano della cucina,
-            Applicare la guarnizione,
-            Collegarlo al gas e alla corrente,
-            Controllare che funzioni.',
+            applicare la guarnizione,
+            collegarlo al gas e alla corrente,
+            controllare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -216,12 +215,11 @@ class DatabaseSeeder extends Seeder
         $product10 = DB::table('products')->insertGetId([
             'name' => 'Piano Cottura Candy',
             'description' => 'Superficie in iXelium resistente alle macchie per una facile pulizia.',
-            'category' => 'PianoCottura',
             'image' => 'piano2.png',
             'installation' => 'Inserirlo nel foro del piano della cucina,
-            Applicare la guarnizione,
-            Collegarlo al gas e alla corrente,
-            Controllare che funzioni.',
+            applicare la guarnizione,
+            collegarlo al gas e alla corrente,
+            controllare che funzioni.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
