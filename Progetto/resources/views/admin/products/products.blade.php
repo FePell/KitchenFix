@@ -21,12 +21,12 @@
                             <table class="admin-table">
                                 <tbody>
                                     <tr>
-                                        <th>Categoria</th>
-                                        <td>{{ $product->category }}</td>
-                                    </tr>
-                                    <tr>
                                         <th>Descrizione</th>
                                         <td>{{ $product->description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tecniche d'uso</th>
+                                        <td>{{ $product->usage_techniques }}</td>
                                     </tr>
                                     <tr>
                                         <th>Installazione</th>
@@ -41,13 +41,11 @@
                                 <a href="{{ route('admin.products.edit', $product->id) }}" class="admin-btn-edit">
                                     Modifica
                                 </a>
-                                <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                <form action="{{ route('admin.products.destroy', $product->id) }}" 
+                                method="POST" class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button 
-                                        type="submit" 
-                                        class="admin-btn-delete"
-                                        onclick="return confirm('Sei sicuro di voler eliminare questo prodotto?')">
+                                    <button type="submit" class="admin-btn-delete">
                                         Elimina
                                     </button>
                                 </form>

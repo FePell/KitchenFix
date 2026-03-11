@@ -43,6 +43,16 @@
                         @enderror
                     </div>
                     {{-- -------------------------------------------------------------------- --}}
+                    
+                    {{-- Tecniche d'uso ----------------------------------------------------- --}}
+                    <div class="admin-form-group">
+                        <label for="usage_techniques">Tecniche d'uso</label>
+                        <textarea name="usage_techniques" id="usage_techniques" rows="4">{{ old('usage_techniques') }}</textarea>
+                        @error('usage_techniques')
+                            <p class="admin-form-error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    {{-- -------------------------------------------------------------------- --}}
 
                     {{-- Installazione ------------------------------------------------------ --}}
                     <div class="admin-form-group">

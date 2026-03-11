@@ -36,6 +36,9 @@ Route::get('/centri', [AssistanceCenterController::class, 'index']);
 Route::get('/prodotti', [ProductController::class, 'index'])
     ->name('products.index'); //Si usa index per le liste
 
+Route::get('/products/{product}', [ProductController::class, 'show'])
+    ->name('products.show');
+
 //Area Tecnico - Livello 2 -------------------------------------------------------------------]
 Route::middleware(['auth', 'role:technician'])->group(function () {
     Route::get('/technician', function () {
@@ -50,7 +53,8 @@ Route::middleware(['auth', 'role:technician'])->group(function () {
 
 //Area Staff - Livello 3 ---------------------------------------------------------------------]
 Route::middleware(['auth', 'role:staff'])->group(function () {
-    Route::get('/staff', [StaffProductController::class, 'index'])->name('staff.products');
+    Route::get('/staff', [StaffProductController::class, 'index'])
+        ->name('staff.products');
 
     Route::get('/staff/products/{product}/malfunctions/create', [StaffProductController::class, 'createMalfunction'])
         ->name('staff.malfunctions.create');
@@ -86,7 +90,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         ->name('admin.products.edit'); //Modifica dati prodotto
 
     Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])
-    ->name('admin.products.update'); //Aggiorna prodotto nel database
+        ->name('admin.products.update'); //Aggiorna prodotto nel database
 
     Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])
         ->name('admin.products.destroy');

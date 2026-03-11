@@ -55,7 +55,7 @@
             {{-- Bottone x tornare ai Prodotti ---------------------------------------------- --}}
             <div class="back-to-products">
                 <a href="{{ route('products.index') }}" class="back-products-btn">
-                    Torna al catalogo prodotti
+                    Torna al prodotto
                 </a>
             </div>
             {{-- ---------------------------------------------------------------------------- --}}

@@ -100,126 +100,80 @@ class DatabaseSeeder extends Seeder
         //Prodotto ------------------------------------------------------------
         $product1 = DB::table('products')->insertGetId([ //Chiedere perchè product1 e non productId
             'name' => 'Cappa Glem Gas',
-            'description' => 'Comandi a pulsante 1 motore, aspirazione 498 m3/h, 
-            filtro metallico antigrasso lavabile in lavastoviglie, 
-            filtri carbone 3 velocità 2 lampade led da 4 W Rumorosità 67 db(A)',
             'image' => 'cappa1.png',
-            'installation' => 'Posizionarla sopra il piano cottura,
-            fissare la cappa con le viti,
-            collegare il tubo di aspirazione,
-            collegarla alla corrente e verificare che funzioni.',
+            'description' => 'Comandi a pulsante 1 motore, aspirazione 498 m3/h, filtro metallico antigrasso lavabile in lavastoviglie, filtri carbone 3 velocità 2 lampade led da 4 W Rumorosità 67 db(A).',
+            'usage_techniques' => 'Utilizzare la cappa durante la cottura per aspirare vapori e odori. Regolare la velocità in base all\'intensità della preparazione.',
+            'installation' => 'Installare sopra il piano cottura fissandola alla parete e collegarla al tubo di aspirazione e alla rete elettrica.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product2 = DB::table('products')->insertGetId([
             'name' => 'Cappa Faber Cooker',
-            'description' => 'Comandi a pulsante Profilo slim - 4 cm 1 motore, aspirazione 650 m³/h, 
-            filtri metallici antigrasso lavabili in lavastoviglie 
-            filtri carbone 3 velocità 2 spot led da 2 W Rumorosità 68 db(A)',
             'image' => 'cappa2.png',
-            'installation' => 'Posizionarla sopra il piano cottura,
-            fissare la cappa con le viti,
-            collegare il tubo di aspirazione,
-            collegarla alla corrente e verificare che funzioni.',
+            'description' => 'Comandi a pulsante Profilo slim - 4 cm 1 motore, aspirazione 650 m³/h, filtri metallici antigrasso lavabili in lavastoviglie, filtri carbone 3 velocità 2 spot led da 2 W Rumorosità 68 db(A).',
+            'usage_techniques' => 'Utilizzare la cappa durante la cottura per aspirare vapori e odori. Regolare la velocità in base all\'intensità della preparazione.',
+            'installation' => 'Installare sopra il piano cottura fissandola alla parete e collegarla al tubo di aspirazione e alla rete elettrica.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product3 = DB::table('products')->insertGetId([
             'name' => 'Forno Whirlpool',
-            'description' => 'Forno multifunzione Inox 11 funzioni classe A+ 71Lt, pirolisi e idrolisi',
             'image' => 'forno1.png',
-            'installation' => 'Inserire il forno nel mobile della cucina,
-            collegarlo alla corrente,
-            fissarlo con le viti,
-            accenderlo e verificare che funzioni.',
+            'description' => 'Forno multifunzione Inox 11 funzioni classe A+ 71Lt, pirolisi e idrolisi',
+            'usage_techniques' => 'Preriscaldare il forno prima della cottura e utilizzare la modalità adatta (statica, ventilata o grill) in base al tipo di alimento.',
+            'installation' => 'Inserire il forno nell\'apposito vano del mobile da cucina e collegarlo alla rete elettrica secondo le indicazioni del produttore.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product4 = DB::table('products')->insertGetId([
             'name' => 'Forno Hotpoint Ariston',
-            'description' => 'Tecnologia elettrica avanzata per cucinare risparmiando energia',
             'image' => 'forno2.png',
-            'installation' => 'Inserire il forno nel mobile della cucina,
-            collegarlo alla corrente,
-            fissarlo con le viti,
-            accenderlo e verificare che funzioni.',
+            'description' => 'Tecnologia elettrica avanzata per cucinare risparmiando energia',
+            'usage_techniques' => 'Preriscaldare il forno prima della cottura e utilizzare la modalità adatta (statica, ventilata o grill) in base al tipo di alimento.',
+            'installation' => 'Inserire il forno nell\'apposito vano del mobile da cucina e collegarlo alla rete elettrica secondo le indicazioni del produttore.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product5 = DB::table('products')->insertGetId([
             'name' => 'Frigorifero LG Electronics',
-            'description' => 'Ripiani in vetro, robusti ed eleganti al tempo stesso. 
-            Comodo porta-bottiglie per conservarle con sicurezza',
             'image' => 'frigo1.png',
-            'installation' => 'Posizionarlo nello spazio della cucina,
-            collegarlo alla presa elettrica,
-            attendere qualche ora prima di accenderlo,
-            impostare la temperatura e verificare che raffreddi.',
+            'description' => 'Ripiani in vetro, robusti ed eleganti al tempo stesso. Comodo porta-bottiglie per conservarle con sicurezza.',
+            'usage_techniques' => 'Conservare gli alimenti nei ripiani corretti e mantenere una temperatura interna tra 4°C e 6°C per garantire una buona conservazione.',
+            'installation' => 'Posizionare il frigorifero su una superficie stabile, lasciare spazio per la ventilazione e collegarlo alla presa elettrica.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product6 = DB::table('products')->insertGetId([
-            'name' => 'Frigorifero Hotpoint Ariston',
-            'description' => 'Ripiani con finiture metalliche e vassoio scorrevole nel freezer.
-            Display smooth touch',
-            'image' => 'frigo2.png',
-            'installation' => 'Posizionarlo nello spazio della cucina,
-            collegarlo alla presa elettrica,
-            attendere qualche ora prima di accenderlo,
-            impostare la temperatura e verificare che raffreddi.',
+            'name' => 'Microonde Whirlpool',
+            'image' => 'micro1.png',
+            'description' => 'Funzione Jet Defrost per uno sbrinamento eccezionalmente rapido e uniforme',
+            'usage_techniques' => 'Utilizzare contenitori adatti al microonde ed impostare la potenza corretta per riscaldare o scongelare gli alimenti in modo uniforme.',
+            'installation' => 'Collocare il microonde su una superficie piana e stabile, assicurando spazio per la ventilazione, e collegarlo alla presa elettrica.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product7 = DB::table('products')->insertGetId([
-            'name' => 'Microonde Whirlpool',
-            'description' => 'Funzione Jet Defrost per uno sbrinamento eccezionalmente rapido e uniforme',
-            'image' => 'micro1.png',
-            'installation' => 'Posizionarlo su una superficie stabile,
-            lasciare spazio per la ventilazione,
-            collegarlo alla presa elettrica,
-            impostare orologio e potenza e verificare che funzioni.',
+            'name' => 'Piano Cottura Whirlpool',
+            'image' => 'piano1.png',
+            'description' => 'Fornelli ad alta efficienza, per ridurre il consumo di energia.',
+            'usage_techniques' => 'Utilizzare pentole adatte al tipo di piano e regolare la potenza o la fiamma in base alla preparazione.',
+            'installation' => 'Installare il piano cottura nell\'apertura del piano cucina e collegarlo alla rete del gas o elettrica secondo il modello.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $product8 = DB::table('products')->insertGetId([
-            'name' => 'Microonde Pro Whirlpool',
-            'description' => 'Funzione grill e funzione Jet Defrost per uno sbrinamento eccezionalmente rapido e uniforme.',
-            'image' => 'micro2.png',
-            'installation' => 'Posizionarlo su una superficie stabile,
-            lasciare spazio per la ventilazione,
-            collegarlo alla presa elettrica,
-            impostare orologio e potenza e verificare che funzioni.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        $product9 = DB::table('products')->insertGetId([
-            'name' => 'Piano Cottura Whirlpool',
-            'description' => 'Fornelli ad alta efficienza, per ridurre il consumo di energia.',
-            'image' => 'piano1.png',
-            'installation' => 'Inserirlo nel foro del piano della cucina,
-            applicare la guarnizione,
-            collegarlo al gas e alla corrente,
-            controllare che funzioni.',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        $product10 = DB::table('products')->insertGetId([
             'name' => 'Piano Cottura Candy',
-            'description' => 'Superficie in iXelium resistente alle macchie per una facile pulizia.',
             'image' => 'piano2.png',
-            'installation' => 'Inserirlo nel foro del piano della cucina,
-            applicare la guarnizione,
-            collegarlo al gas e alla corrente,
-            controllare che funzioni.',
+            'description' => 'Superficie in iXelium resistente alle macchie per una facile pulizia.',
+            'usage_techniques' => 'Utilizzare pentole adatte al tipo di piano e regolare la potenza o la fiamma in base alla preparazione.',
+            'installation' => 'Installare il piano cottura nell\'apertura del piano cucina e collegarlo alla rete del gas o elettrica secondo il modello.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -227,16 +181,16 @@ class DatabaseSeeder extends Seeder
         //Malfunzionamento ----------------------------------------------------
         $malfunction1 = DB::table('malfunctions')->insertGetId([
             'product_id' => $product1,
-            'description' => 'Il dispositivo non si avvia',
-            'solution' => 'Controllare l\'alimentazione',
+            'description' => 'Il dispositivo non si avvia.',
+            'solution' => 'Controllare l\'alimentazione.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $malfunction2 = DB::table('malfunctions')->insertGetId([
             'product_id' => $product1,
-            'description' => 'Rumore forte durante il funzionamento',
-            'solution' => 'Controllare ventola o motore',
+            'description' => 'Rumore forte durante il funzionamento.',
+            'solution' => 'Controllare ventola o motore.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

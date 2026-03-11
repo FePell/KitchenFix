@@ -4,7 +4,7 @@
     @section('content')
     <section class="section-products-page">
         <div class="container">
-            <h2 class="products-page-title">I nostri prodotti</h2>
+            <h2 class="products-page-title">Catalogo prodotti</h2>
 
             {{-- Barra di ricerca ----------------------------------------------------------- --}}
             <div class="products-search">
@@ -18,6 +18,7 @@
                     <button type="submit">Cerca</button>
                 </form>
             </div>
+
             @if(!empty($searchError))
                 <p class="search-error">{{ $searchError }}</p>
             @endif
@@ -32,33 +33,17 @@
                         @foreach($products as $product)
                             <article class="product-card">
 
-                                <div class="product-main">
-                                    <div class="product-card-image">
-                                        <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}">
-                                    </div>
-
-                                    <div class="product-card-content">
-                                        <h3 class="product-title">{{ $product->name }}</h3>
-
-                                        <p class="product-description">
-                                            <strong>Descrizione:</strong> {{ $product->description }}
-                                        </p>
-
-                                        <p class="product-installation">
-                                            <strong>Installazione:</strong> {{ $product->installation }}
-                                        </p>
-                                    </div>
+                                <div class="product-card-image">
+                                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}">
                                 </div>
 
-                                {{-- Sezione Tecnico - Livello 2 ---------------------------- --}}
-                                @auth
-                                    @if(auth()->user()->role === 'technician')  
-                                    <a href="{{ route('products.malfunctions', $product->id) }}" class="product-malfunctions-btn">
-                                        Visualizza malfunzionamenti e soluzioni
-                                    </a>  
-                                    @endif
-                                @endauth
-                                {{-- -------------------------------------------------------- --}}
+                                <div class="product-card-content">
+                                    <h3 class="product-title">{{ $product->name }}</h3>
+
+                                    <a href="{{ route('products.show', $product->id) }}" class="product-details-btn">
+                                        Visualizza dettagli
+                                    </a>
+                                </div>
 
                             </article>
                         @endforeach

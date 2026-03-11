@@ -10,7 +10,7 @@ class AdminProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('admin.products.products', compact('products'));
+        return view('admin.products.products', compact('products')); //DA CAPIRE
     }
 
     public function create()
@@ -23,6 +23,7 @@ class AdminProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'usage_techniques' => 'required|string',
             'installation' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
         ]);
@@ -35,11 +36,12 @@ class AdminProductController extends Controller
         Product::create([
             'name' => $request->name,
             'description' => $request->description,
+            'usage_techniques' => $request->usage_techniques,
             'installation' => $request->installation,
             'image' => $imageName
         ]);
 
-        return redirect()->route('admin.products.products')
+        return redirect()->route('admin.products')
             ->with('success', 'Prodotto creato con successo.');
     }
 
@@ -53,6 +55,7 @@ class AdminProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'usage_techniques' => 'required|string',
             'installation' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
@@ -60,6 +63,7 @@ class AdminProductController extends Controller
         $data = [
             'name' => $request->name,
             'description' => $request->description,
+            'usage_techniques' => $request->usage_techniques,
             'installation' => $request->installation,
         ];
 
@@ -78,13 +82,13 @@ class AdminProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('admin.products.products')
+        return redirect()->route('admin.products')
             ->with('success', 'Prodotto aggiornato con successo.');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.products.products');
+        return redirect()->route('admin.products'); //DA CAPIRE
     }
 }

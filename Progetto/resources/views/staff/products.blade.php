@@ -34,13 +34,11 @@
                                                     <a href="{{ route('staff.malfunctions.edit', $malfunction->id) }}" class="btn-edit">
                                                         Modifica
                                                     </a>
-                                                    <form action="{{ route('staff.malfunctions.destroy', $malfunction->id) }}" method="POST">
+                                                    <form action="{{ route('staff.malfunctions.destroy', $malfunction->id) }}" 
+                                                    method="POST" class="delete-form">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button 
-                                                            type="submit" 
-                                                            class="btn-delete"
-                                                            onclick="return confirm('Sei sicuro di voler eliminare questo malfunzionamento?')">
+                                                        <button type="submit" class="btn-delete">
                                                             Elimina
                                                         </button>
                                                     </form>

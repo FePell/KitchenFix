@@ -10,6 +10,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
+        'usage_techniques',
         'installation',
         'image',
     ];

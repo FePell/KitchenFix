@@ -6,7 +6,7 @@
         {{-- Parte sinistra (condivisa) ----------------------------------------------------- --}}
         <div class="nav-left">
             <a href="{{ url('/') }}" class="nav-logo">
-                <img src="{{ asset('images/logo1.png') }}" alt="KitchenFix Logo">
+                <img src="{{ asset('images/logo.png') }}" alt="KitchenFix Logo">
             </a>
         </div>
         {{-- -------------------------------------------------------------------------------- --}}

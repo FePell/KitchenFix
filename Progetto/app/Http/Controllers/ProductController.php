@@ -47,6 +47,12 @@ class ProductController extends Controller
         return view('products.products', compact('products', 'searchError'));
     }
 
+    public function show(Product $product)
+    {
+        $product->load('malfunctions');
+        return view('products.product-details', compact('product'));
+    }
+
     public function malfunctions(Request $request, Product $product)
     {
         $query = $product->malfunctions();

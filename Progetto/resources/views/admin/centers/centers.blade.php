@@ -33,13 +33,12 @@
                             class="admin-btn-edit">
                                 Modifica
                             </a>
-                            <form action="{{ route('admin.centers.destroy', $center->id) }}" method="POST">
+                            <form action="{{ route('admin.centers.destroy', $center->id) }}" 
+                            method="POST" class="delete-form">
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit"
-                                        class="admin-btn-delete"
-                                        onclick="return confirm('Sei sicuro di voler eliminare questo centro?')">
+                                <button type="submit" class="admin-btn-delete">
                                     Elimina
                                 </button>
                             </form>
