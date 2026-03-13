@@ -473,7 +473,7 @@ Usare una classe unica per tutti i bottoni (?)
 .product-details-btn {
     display: inline-block;
     padding: 10px 14px;
-    background-color: #163a6b;
+    background-color: #b2b5bb;
     color: white;
     text-decoration: none;
     border-radius: 10px;
@@ -482,7 +482,7 @@ Usare una classe unica per tutti i bottoni (?)
     transition: 0.3s;
 }
 .product-details-btn:hover {
-    background-color: #0f2b50;
+    background-color: #798392;
 }
 .reset-products-search {
     margin-top: 40px;
