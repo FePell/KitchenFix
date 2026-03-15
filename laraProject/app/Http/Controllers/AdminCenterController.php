@@ -15,7 +15,7 @@ class AdminCenterController extends Controller
 
     public function create()
     {
-        return view('admin.centers.create-center');
+        return view('admin.centers.form-center');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class AdminCenterController extends Controller
 
     public function edit(AssistanceCenter $center)
     {
-        return view('admin.centers.edit-center', compact('center'));
+        return view('admin.centers.form-center', compact('center'));
     }
 
     public function update(Request $request, AssistanceCenter $center)

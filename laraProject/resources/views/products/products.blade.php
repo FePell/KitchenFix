@@ -4,10 +4,10 @@
     @section('content')
     <section class="section-products-page">
         <div class="container">
-            <h2 class="products-page-title">Catalogo prodotti</h2>
+            <h2 class="page-title">Catalogo prodotti</h2>
 
             {{-- Barra di ricerca ----------------------------------------------------------- --}}
-            <div class="products-search">
+            <div class="search-wrapper">
                 <form action="{{ route('products.index') }}" method="GET" class="search-form">
                     <input 
                         type="text" 
@@ -53,8 +53,8 @@
             {{-- ---------------------------------------------------------------------------- --}}
 
             {{-- Bottone x resettare ricerca  ----------------------------------------------- --}}
-            <div class="reset-products-search">
-                <a href="{{ route('products.index') }}" class="reset-products-btn">
+            <div class="back-wrapper">
+                <a href="{{ route('products.index') }}" class="btn-back">
                     Mostra tutti i prodotti
                 </a>
             </div>

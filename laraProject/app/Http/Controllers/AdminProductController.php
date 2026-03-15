@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AdminProductController extends Controller
 {
@@ -15,7 +15,7 @@ class AdminProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create-product');
+        return view('admin.products.form-product');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class AdminProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.products.edit-product', compact('product'));
+        return view('admin.products.form-product', compact('product'));
     }
 
     public function update(Request $request, Product $product)
@@ -89,6 +89,6 @@ class AdminProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.products'); //DA CAPIRE
+        return redirect()->route('admin.products'); 
     }
 }

@@ -1,7 +1,7 @@
 
 /* Generale ------------------------------------------------------- */
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; } /*Scroll fluido tra le sezioni, senza salti*/
+html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
@@ -16,15 +16,216 @@ body{
   margin: 0 auto;
   padding: 56px 0;
 }
-
-/* Cose da fare
-Usare una classe unica per tutti i titoli
-Usare una classe unica per tutti i bottoni (?)
-*/
-
 /* ---------------------------------------------------------------- */
 
-/* Login ---------------------------------------------------------- */ /*Livello 1-2-3-4*/
+/* Titolo di pagina condiviso ------------------------------------- */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    color: #1f2937;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+/* ---------------------------------------------------------------- */
+
+/* Bottoni condivisi ---------------------------------------------- */
+.btn-primary {
+    background-color: #163a6b;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #0f2b50;
+}
+.btn-danger {
+    background-color: #9b2020;
+    color: white;
+}
+.btn-danger:hover {
+    background-color: #7f1d1d;
+}
+.btn-accent {
+    background-color: #f59e0b;
+    color: white;
+}
+.btn-accent:hover {
+    background-color: #d97706;
+}
+/* ---------------------------------------------------------------- */
+
+/* Form condiviso (Staff + Admin) --------------------------------- */
+.form-section {
+    padding: 50px 0;
+    background-color: #f8f9fb;
+}
+.form-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.form-title {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+.form-subtitle {
+    color: #4b5563;
+    margin-bottom: 25px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+}
+.form-group textarea {
+    resize: vertical;
+}
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+.form-error {
+    color: #dc2626;
+    margin-top: 6px;
+    font-size: 14px;
+}
+.form-help {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #6b7280;
+}
+.form-image-preview {
+    margin-top: 10px;
+}
+.form-image-preview-img {
+    width: 180px;
+    border-radius: 10px;
+    display: block;
+}
+.btn-save {
+    background-color: #163a6b;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-save:hover {
+    background-color: #0f2b50;
+}
+.btn-cancel {
+    background-color: #9b2020;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn-cancel:hover {
+    background-color: #7f1d1d;
+}
+/* ---------------------------------------------------------------- */
+
+/* Barra di ricerca condivisa ------------------------------------- */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.search-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 700px;
+}
+.search-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+.search-form input:focus {
+    border-color: #2563eb;
+}
+.search-form button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #163a6b;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+.search-form button:hover {
+    background-color: #0f2b50;
+}
+.search-error {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    color: #b91c1c;
+    font-weight: 500;
+}
+/* ---------------------------------------------------------------- */
+
+/* Bottone "Torna indietro" condiviso ----------------------------- */
+.back-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.btn-back {
+    background-color: #9b2020;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn-back:hover {
+    background-color: #7f1d1d;
+}
+/* ---------------------------------------------------------------- */
+
+/* Login ---------------------------------------------------------- */
 .auth-page {
     min-height: 100vh;
     display: flex;
@@ -97,7 +298,7 @@ Usare una classe unica per tutti i bottoni (?)
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.auth-btn:hover { 
+.auth-btn:hover {
     background-color: #2d5b93;
 }
 .auth-btn:active {
@@ -105,7 +306,7 @@ Usare una classe unica per tutti i bottoni (?)
 }
 /* ---------------------------------------------------------------- */
 
-/* Navbar Home ---------------------------------------------------- */ /*Livello 1-2*/
+/* Navbar Home ---------------------------------------------------- */
 .navbar {
     background-color: #ffffff;
     border-bottom: 1px solid #e5e7eb;
@@ -186,58 +387,40 @@ Usare una classe unica per tutti i bottoni (?)
     font-size: 15px;
     white-space: nowrap;
 }
-.login-btn { /*5*/
-    background-color: #f59e0b;
-    color: white;
-}
-.login-btn:hover { /*6*/
-    background-color: #d97706;
-}
-.logout-btn { /*5*/
-    background-color: #f59e0b;
-    color: white;
-}
-.logout-btn:hover { /*6*/
-    background-color: #d97706;
-}
 .logout-form {
     margin: 0;
 }
 /* ---------------------------------------------------------------- */
 
-/* Stili Comuni per le Sezioni ------------------------------------ */
-/* Dimensione Sezione */
+/* Stili Comuni per le Sezioni Home ------------------------------- */
 .section-about,
 .section-prodotti,
 .section-centri,
 .section-contatti {
   padding: 10px 0;
 }
-/* Titolo Sezione */
 .section-about h2,
 .section-prodotti h2,
 .section-centri h2,
 .section-contatti h2 {
   font-size: 32px;
   color: #1f2937;
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 30px;
   font-weight: 700;
   text-align: center;
 }
 /* ---------------------------------------------------------------- */
 
-/* Sezione "La nostra Azienda" ------------------------------------ */ /*Livello 1-2*/
+/* Sezione "La nostra Azienda" ------------------------------------ */
 .section-about {
   background-color: #f5f5f5ef;
   text-align: center;
 }
-
 .section-about .container {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .section-about p {
   font-size: 16px;
   line-height: 1.7;
@@ -246,7 +429,7 @@ Usare una classe unica per tutti i bottoni (?)
 }
 /* ---------------------------------------------------------------- */
 
-/* Sezione "I nostri Prodotti" ------------------------------------ */ /*Livello 1-2*/
+/* Sezione "I nostri Prodotti" ------------------------------------ */
 .section-prodotti {
   background-color: #ffffff;
   text-align: center;
@@ -281,7 +464,6 @@ Usare una classe unica per tutti i bottoni (?)
   display: block;
   margin: 0 auto;
 }
-/* Bottone "Esplora Catalogo" --------------- */
 .catalogo-button {
   margin-top: 40px;
 }
@@ -295,13 +477,12 @@ Usare una classe unica per tutti i bottoni (?)
   font-weight: 700;
   transition: 0.25s ease;
 }
-.btn-catalogo:hover { /*2*/
-  background-color: #0f2b50;;
+.btn-catalogo:hover {
+  background-color: #0f2b50;
 }
-/* ------------------------------------------ */
 /* ---------------------------------------------------------------- */
 
-/* Sezione "I nostri Centri" -------------------------------------- */ /*Livello 1-2*/
+/* Sezione "I nostri Centri" -------------------------------------- */
 .section-centri {
   background-color: #f5f5f5ef;
   text-align: center;
@@ -336,7 +517,7 @@ Usare una classe unica per tutti i bottoni (?)
 }
 /* ---------------------------------------------------------------- */
 
-/* Sezione "Contatti"  -------------------------------------------- */ /*Livello 1-2*/
+/* Sezione "Contatti" --------------------------------------------- */
 .section-contatti {
   background-color: #ffffff;
   text-align: center;
@@ -347,7 +528,7 @@ Usare una classe unica per tutti i bottoni (?)
   align-items: center;
   gap: 10px;
 }
-.contatti-bar h2{ /**/
+.contatti-bar h2 {
     margin: 0;
 }
 .contatti-info {
@@ -368,23 +549,10 @@ Usare una classe unica per tutti i bottoni (?)
 }
 /* ---------------------------------------------------------------- */
 
-/* Catalogo Prodotti ---------------------------------------------- */ /*Livello 1-2*/
+/* Catalogo Prodotti ---------------------------------------------- */
 .section-products-page {
     padding: 10px 0 40px;
     background-color: #f5f5f5ef;
-}
-.products-page-title {
-    text-align: center;
-    margin-top: 10px; 
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: #1f2937;
-}
-.products-search{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; 
-    margin-bottom: 50px;
 }
 .products-main {
     flex: 1;
@@ -393,43 +561,6 @@ Usare una classe unica per tutti i bottoni (?)
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-}
-.search-form{
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 700px;
-}
-.search-form input {
-    flex: 1;
-    padding: 12px 15px;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-}
-.search-form input:focus {
-    border-color: #2563eb;
-}
-.search-form button {
-    padding: 12px 20px;
-    border: none;
-    background-color: #163a6b;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-.search-form button:hover {
-    background-color: #0f2b50;
-}
-.search-error {
-    text-align: center;
-    margin-top: -30px;
-    margin-bottom: 30px;
-    color: #b91c1c;
-    font-weight: 500;
 }
 .product-card {
     background: white;
@@ -484,28 +615,8 @@ Usare una classe unica per tutti i bottoni (?)
 .product-details-btn:hover {
     background-color: #798392;
 }
-.reset-products-search {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-.reset-products-btn { /*7*/ 
-    background-color: #9b2020;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.reset-products-btn:hover { /*4*/
-    background-color: #7f1d1d;
-}
 
-/* Dettagli Prodotto -------------- */ /*Livello 1-2*/
+/* Dettagli Prodotto -------------- */
 .product-details-section {
     padding: 30px 0 50px;
     background-color: #f5f5f5ef;
@@ -573,93 +684,18 @@ Usare una classe unica per tutti i bottoni (?)
     border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
+    cursor: pointer;
+    border: none;
     transition: 0.3s;
 }
 .product-malfunctions-btn:hover {
     background-color: #0f2b50;
 }
-.product-details-back {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-}
-.back-btn { /*7*/ 
-    background-color: #9b2020;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.back-btn:hover { /*4*/
-    background-color: #7f1d1d;
-}
 
-/* Malfunzionamenti --------------- */ /*Livello 2*/
-.product-malfunctions-btn { /*8*/
-    background-color: #163a6b;
-    color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.product-malfunctions-btn:hover { /*2*/
-    background-color: #0f2b50;
-}
+/* Malfunzionamenti --------------- */
 .section-malfunctions-page {
     padding: 10px 0 40px;
     background-color: #f5f5f5ef;
-}
-.malfunctions-page-title {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: #1f2937;
-}
-.malfunctions-search {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-.malfunctions-search-form {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 700px;
-}
-.malfunctions-search-form input {
-    flex: 1;
-    padding: 12px 15px;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    font-size: 16px;
-    outline: none;
-}
-.malfunctions-search-form input:focus {
-    border-color: #2563eb;
-}
-.malfunctions-search-form button {
-    padding: 12px 20px;
-    border: none;
-    background-color: #163a6b;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-.malfunctions-search-form button:hover {
-    background-color: #0f2b50;
 }
 .malfunctions-grid {
     display: flex;
@@ -687,38 +723,12 @@ Usare una classe unica per tutti i bottoni (?)
     font-size: 18px;
     color: #6b7280;
 }
-.back-to-products {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-.back-products-btn { /*7*/
-    background-color: #9b2020;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.back-products-btn:hover { /*4*/
-    background-color: #7f1d1d;
-}
 /* ---------------------------------------------------------------- */
 
-/* Sezione Prodotti Staff ----------------------------------------- */ /*Livello 3*/
+/* Sezione Prodotti Staff ----------------------------------------- */
 .staff-products-section {
     padding: 10px 0;
     background-color: #f8f9fb;
-}
-.staff-page-title {
-    text-align: center;
-    font-size: 36px;
-    color: #1f2937;
-    margin-bottom: 30px;
 }
 .staff-product-card {
     background: #ffffff;
@@ -803,126 +813,35 @@ Usare una classe unica per tutti i bottoni (?)
     border: none;
     transition: 0.2s ease;
 }
-.btn-edit { /*1*/
+.btn-edit {
     background-color: #163a6b;
     color: white;
 }
-.btn-edit:hover { /*2*/
+.btn-edit:hover {
     background-color: #0f2b50;
 }
-.btn-delete { /*3*/
+.btn-delete {
     background-color: #9b2020;
     color: white;
 }
-.btn-delete:hover { /*4*/
+.btn-delete:hover {
     background-color: #7f1d1d;
 }
-.btn-add-malfunction { /*5*/
+.btn-add-malfunction {
     background-color: #f59e0b;
     color: white;
 }
-.btn-add-malfunction:hover { /*6*/
+.btn-add-malfunction:hover {
     background-color: #d97706;
 }
 /* ---------------------------------------------------------------- */
 
-/* Sezione Aggiungi/Modifica Malfunzionamento --------------------- */ /*Livello 3*/
-.staff-form-section {
-    padding: 60px 0;
-    background-color: #f8f9fb;
-}
-.staff-form-card {
-    max-width: 650px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 18px;
-    padding: 32px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-.staff-form-title {
-    font-size: 30px;
-    color: #111827;
-    margin-bottom: 10px;
-}
-.staff-form-subtitle {
-    color: #4b5563;
-    margin-bottom: 25px;
-}
-.staff-form-group {
-    margin-bottom: 20px;
-}
-.staff-form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #1f2937;
-}
-.staff-form-group input {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    font-size: 15px;
-    outline: none;
-    box-sizing: border-box;
-}
-.staff-form-group input:focus { /*9*/
-    border-color: #2563eb;
-}
-.staff-form-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-}
-.btn-save { /*8*/
-    background-color: #163a6b;
-    color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-}
-.btn-save:hover { /*2*/
-    background: #0f2b50;
-}
-.btn-cancel-link { /*7*/
-    background-color: #9b2020;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.btn-cancel-link:hover { /*4*/
-    background-color: #7f1d1d;
-}
-.form-error { /*In comune con admin*/
-    color: #dc2626;
-    margin-top: 6px;
-    font-size: 14px;
-}
-/* ---------------------------------------------------------------- */
-
-/* Sezione Prodotti Amministratore -------------------------------- */ /*Livello 4*/
-.admin-products-section { /*A*/
+/* Sezione Admin (Prodotti, Tecnici, Centri) ---------------------- */
+.admin-section {
     padding: 10px 0;
     background-color: #f8f9fb;
 }
-.admin-page-title{ /*Stesso per sezione Centri*/
-    text-align: center;
-    font-size:36px;
-    color:#1f2937;
-    margin-bottom: 30px;
-}
-.admin-btn-add { /*Stesso per sezione Centri*/
+.admin-btn-add {
     display: block;
     width: fit-content;
     margin: 0 auto 30px auto;
@@ -934,9 +853,71 @@ Usare una classe unica per tutti i bottoni (?)
     font-weight: 600;
     transition: 0.25s ease;
 }
-.admin-btn-add:hover { /*6*/
+.admin-btn-add:hover {
     background-color: #d97706;
 }
+
+/* Card grid condivisa (Centri + Tecnici) */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.admin-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+.admin-card-title {
+    font-size: 24px;
+    color: #111827;
+    margin-bottom: 18px;
+}
+.admin-card-info {
+    margin-bottom: 10px;
+    color: #374151;
+}
+.admin-card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Bottoni azioni admin (edit/delete) */
+.admin-btn-edit,
+.admin-btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+.admin-btn-edit {
+    background-color: #163a6b;
+    color: white;
+}
+.admin-btn-edit:hover {
+    background-color: #0f2b50;
+}
+.admin-btn-delete {
+    background-color: #9b2020;
+    color: white;
+}
+.admin-btn-delete:hover {
+    background-color: #7f1d1d;
+}
+
+/* Prodotti admin (layout specifico) */
 .admin-product-card {
     background: white;
     border-radius: 22px;
@@ -1009,174 +990,66 @@ Usare una classe unica per tutti i bottoni (?)
 .admin-actions form {
     margin: 0;
 }
-.admin-btn-edit,
-.admin-btn-delete { /*Stesso per sezione Centri*/
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px;
-    padding: 11px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-.admin-btn-edit { /*1*/ /*Stesso per sezione Centri*/
-    background-color: #163a6b;
-    color: white;
-}
-.admin-btn-edit:hover { /*2*/
-    background-color: #0f2b50;
-}
-.admin-btn-delete { /*3*/ /*Stesso per sezione Centri*/
-    background-color: #9b2020;
-    color: white;
-}
-.admin-btn-delete:hover { /*4*/
-    background-color: #7f1d1d;
-}
 
-/* Pagina modifica/aggiunta Prodotti/Centri --------------- */
-.admin-form-section {
-    padding: 50px 0;
-    background-color: #f8f9fb;
+/* Tabs tecnici */
+.admin-technicians-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
 }
-.admin-form-card {
-    max-width: 700px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 32px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-.admin-form-title {
-    font-size: 32px;
-    color: #111827;
-    margin-bottom: 10px;
-}
-.admin-form-subtitle {
-    color: #4b5563;
-    margin-bottom: 25px;
-}
-.admin-form-group {
-    margin-bottom: 20px;
-}
-.admin-form-group label {
-    display: block;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 8px;
-}
-.admin-form-group input,
-.admin-form-group textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
+.admin-btn-tab {
+    display: inline-block;
+    padding: 11px 22px;
     border-radius: 10px;
     font-size: 15px;
-    outline: none;
-    box-sizing: border-box;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #163a6b;
+    color: #163a6b;
+    background-color: transparent;
+    transition: 0.25s ease;
 }
-.admin-form-group input:focus, /*9*/
-.admin-form-group textarea:focus {
-    border-color: #2563eb;
+.admin-btn-tab:hover {
+    background-color: #2d5b93;
+    color: white;
 }
-.admin-form-group textarea {
-    resize: vertical;
-}
-.admin-form-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-}
-.admin-btn-save { /*8*/
+.admin-btn-tab.active {
     background-color: #163a6b;
     color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
 }
-.admin-btn-save:hover { /*2*/
-    background-color: #0f2b50;
-}
-.admin-btn-cancel-link { /*7*/
-    background-color: #9b2020;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-.admin-btn-cancel-link:hover { /*4*/
-    background-color: #7f1d1d;
-}
-.admin-image-preview {
-    margin-top: 10px;
-}
-.admin-image-preview-img {
-    width: 180px;
-    border-radius: 10px;
-    display: block;
-}
-.admin-form-error {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #dc2626;
-}
-.admin-form-help {
-    margin-top: 6px;
-    font-size: 13px;
-    color: #6b7280;
-}
-/* -------------------------------------------------- */
-/* ---------------------------------------------------------------- */
 
-/* Sezione Tecnici Amministratore --------------------------------- */ /*Livello 4*/
-/* ---------------------------------------------------------------- */
-
-/* Sezione Centri Amministratore ---------------------------------- */ /*Livello 4*/
-.admin-centers-section { /*A*/
-    padding: 10px 0;
-    background-color: #f8f9fb;
-}
-.admin-centers-grid {
+/* Checkbox grid (form staff) */
+.admin-checkbox-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-.admin-center-card {
-    background: white;
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-.admin-center-title {
-    font-size: 24px;
-    color: #111827;
-    margin-bottom: 18px;
-}
-.admin-center-info {
-    margin-bottom: 30px;
-    color: #374151;
-}
-.admin-center-actions {
-    display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 4px;
 }
-
-/* Sezione Aggiungi/Modifica Prodotto --------------- */
-
-/* -------------------------------------------------- */
+.admin-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: #374151;
+    font-size: 15px;
+}
+.admin-checkbox-item:hover {
+    border-color: #163a6b;
+    background-color: #f0f4fa;
+}
+.admin-checkbox-item input[type="checkbox"] {
+    accent-color: #163a6b;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
 /* ---------------------------------------------------------------- */

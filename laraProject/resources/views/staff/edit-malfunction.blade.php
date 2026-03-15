@@ -2,17 +2,17 @@
 
 {{-- Livello 3 ------------------------------------------------------------------------------ --}}
 @section('content')
-    <section class="staff-form-section">
+    <section class="form-section">
         <div class="container">
-            <div class="staff-form-card">
-                <h1 class="staff-form-title">Modifica malfunzionamento</h1>
+            <div class="form-card">
+                <h1 class="form-title">Modifica malfunzionamento</h1>
 
                 <form action="{{ route('staff.malfunctions.update', $malfunction->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 
                     {{-- Descrizione -------------------------------------------------------- --}}
-                    <div class="staff-form-group">
+                    <div class="form-group">
                         <label for="description">Malfunzionamento</label>
                         <input type="text" name="description" id="description"
                             value="{{ old('description', $malfunction->description) }}">
@@ -23,7 +23,7 @@
                     {{-- -------------------------------------------------------------------- --}}
 
                     {{-- Soluzione ---------------------------------------------------------- --}}
-                    <div class="staff-form-group">
+                    <div class="form-group">
                         <label for="solution">Soluzione</label>
                         <input type="text" name="solution" id="solution"
                             value="{{ old('solution', $malfunction->solution) }}">
@@ -34,9 +34,9 @@
                     {{-- -------------------------------------------------------------------- --}}
 
                     {{-- Azioni x Modifica -------------------------------------------------- --}}
-                    <div class="staff-form-actions">
+                    <div class="form-actions">
                         <button type="submit" class="btn-save">Salva modifiche</button>
-                        <a href="{{ route('staff.products') }}" class="btn-cancel-link">Annulla</a>
+                        <a href="{{ route('staff.products') }}" class="btn-cancel">Annulla</a>
                     </div>
                     {{-- -------------------------------------------------------------------- --}}
                 </form>

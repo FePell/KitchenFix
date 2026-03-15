@@ -40,8 +40,8 @@
                 </div>
             </div>
 
-            <div class="product-details-back">
-                <a href="{{ route('products.index') }}" class="back-btn">
+            <div class="back-wrapper">
+                <a href="{{ route('products.index') }}" class="btn-back">
                     Torna al catalogo
                 </a>
             </div>

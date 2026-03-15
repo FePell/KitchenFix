@@ -97,7 +97,38 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     //Gestione Tecnici
     Route::get('/admin/technicians', [AdminTechnicianController::class, 'index'])
-        ->name('admin.technicians');
+    ->name('admin.technicians');
+    
+    Route::get('/admin/technicians/staff/create', [AdminTechnicianController::class, 'staffCreate'])
+        ->name('admin.technicians.staff-create');
+
+    Route::post('/admin/technicians/staff', [AdminTechnicianController::class, 'staffStore'])
+        ->name('admin.technicians.staff-store');
+
+    Route::get('/admin/technicians/staff/{technician}/edit', [AdminTechnicianController::class, 'staffEdit'])
+        ->name('admin.technicians.staff-edit');
+
+    Route::put('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'staffUpdate'])
+        ->name('admin.technicians.staff-update');
+
+    Route::delete('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'staffDestroy'])
+        ->name('admin.technicians.staff-destroy');
+
+    Route::get('/admin/technicians/assistance/create', [AdminTechnicianController::class, 'assistanceCreate'])
+        ->name('admin.technicians.assistance-create');
+
+    Route::post('/admin/technicians/assistance', [AdminTechnicianController::class, 'assistanceStore'])
+        ->name('admin.technicians.assistance-store');
+
+    Route::get('/admin/technicians/assistance/{technician}/edit', [AdminTechnicianController::class, 'assistanceEdit'])
+        ->name('admin.technicians.assistance-edit');
+
+    Route::put('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'assistanceUpdate'])
+        ->name('admin.technicians.assistance-update');
+
+    Route::delete('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'assistanceDestroy'])
+        ->name('admin.technicians.assistance-destroy');
+
 
     //Gestione Centri
     Route::get('/admin/centers', [AdminCenterController::class, 'index'])

@@ -2,10 +2,10 @@
 
 {{-- Livello 4 ------------------------------------------------------------------------------ --}}
 @section('content')
-    <section class="admin-products-section">
+    <section class="admin-section">
         <div class="container">
             
-            <h1 class="admin-page-title">Gestione prodotti</h1>
+            <h1 class="page-title">Gestione prodotti</h1>
                 <a href="{{ route('admin.products.create') }}" class="admin-btn-add">
                     + Aggiungi prodotto
                 </a>    

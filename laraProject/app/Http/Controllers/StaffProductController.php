@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Malfunction;
-use Illuminate\Http\Request;
 
 class StaffProductController extends Controller
 {

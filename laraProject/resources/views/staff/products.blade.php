@@ -4,7 +4,7 @@
 @section('content')
     <section class="staff-products-section">
         <div class="container">
-            <h1 class="staff-page-title">Prodotti assegnati</h1>
+            <h1 class="page-title">Prodotti assegnati</h1>
             
             {{-- Lista dei Prodotti --------------------------------------------------------- --}}
             @foreach($products as $product)

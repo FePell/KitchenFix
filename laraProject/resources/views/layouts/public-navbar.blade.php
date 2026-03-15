@@ -53,7 +53,7 @@
         <div class="nav-right">
 
             @guest
-                <a href="{{ route('login') }}" class="nav-button login-btn">Login</a>
+                <a href="{{ route('login') }}" class="nav-button btn-accent">Login</a>
             @endguest
 
             @auth
@@ -61,7 +61,7 @@
 
                 <form method="POST" action="{{ route('logout') }}" class="logout-form">
                     @csrf
-                    <button type="submit" class="nav-button logout-btn">Logout</button>
+                    <button type="submit" class="nav-button btn-accent">Logout</button>
                 </form>
             @endauth
         </div>

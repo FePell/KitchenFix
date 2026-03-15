@@ -2,11 +2,11 @@
 
 {{-- Livello 3 ------------------------------------------------------------------------------ --}}
 @section('content')
-    <section class="staff-form-section">
+    <section class="form-section">
         <div class="container">
-            <div class="staff-form-card">
-                <h1 class="staff-form-title">Aggiungi malfunzionamento</h1>
-                <p class="staff-form-subtitle">
+            <div class="form-card">
+                <h1 class="form-title">Aggiungi malfunzionamento</h1>
+                <p class="form-subtitle">
                     Prodotto: <strong>{{ $product->name }}</strong>
                 </p>
 
@@ -14,7 +14,7 @@
                     @csrf
 
                     {{-- Descrizione -------------------------------------------------------- --}}
-                    <div class="staff-form-group">
+                    <div class="form-group">
                         <label for="description">Malfunzionamento</label>
                         <input type="text" name="description" id="description" value="{{ old('description') }}">
                         @error('description')
@@ -24,7 +24,7 @@
                     {{-- -------------------------------------------------------------------- --}}
 
                     {{-- Soluzione ---------------------------------------------------------- --}}
-                    <div class="staff-form-group">
+                    <div class="form-group">
                         <label for="solution">Soluzione</label>
                         <input type="text" name="solution" id="solution" value="{{ old('solution') }}">
                         @error('solution')
@@ -34,9 +34,9 @@
                     {{-- -------------------------------------------------------------------- --}}
 
                     {{-- Azioni x Creazione ------------------------------------------------- --}}
-                    <div class="staff-form-actions">
+                    <div class="form-actions">
                         <button type="submit" class="btn-save">Conferma</button>
-                        <a href="{{ route('staff.products') }}" class="btn-cancel-link">Annulla</a>
+                        <a href="{{ route('staff.products') }}" class="btn-cancel">Annulla</a>
                     </div>
                     {{-- -------------------------------------------------------------------- --}}
                 </form>

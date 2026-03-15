@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StaffTechnician extends Model
+class AssistanceTechnician extends Model
 {
     protected $fillable = [
         'user_id',
         'first_name',
         'last_name',
+        'birth_date',
+        'specialization',
+        'assistance_center_id',
     ];
 
     public function user()
@@ -18,11 +21,11 @@ class StaffTechnician extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function products()
+    public function assistanceCenter()
     {
-        return $this->belongsToMany(
-            Product::class,
-            'product_staff_technician'
+        return $this->belongsTo(
+            AssistanceCenter::class,
+            'assistance_center_id'
         );
     }
 }

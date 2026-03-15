@@ -4,13 +4,13 @@
     @section('content')
     <section class="section-malfunctions-page">
         <div class="container">
-            <h2 class="malfunctions-page-title">
+            <h2 class="page-title">
                 Malfunzionamenti di {{ $product->name }}
             </h2>
 
             {{-- Barra di ricerca ----------------------------------------------------------- --}}
-            <div class="malfunctions-search">
-                <form action="{{ route('products.malfunctions', $product->id) }}" method="GET" class="malfunctions-search-form">
+            <div class="search-wrapper">
+                <form action="{{ route('products.malfunctions', $product->id) }}" method="GET" class="search-form">
                     <input 
                         type="text" 
                         name="search" 
@@ -53,8 +53,8 @@
             {{-- ---------------------------------------------------------------------------- --}}
 
             {{-- Bottone x tornare ai Prodotti ---------------------------------------------- --}}
-            <div class="back-to-products">
-                <a href="{{ route('products.index') }}" class="back-products-btn">
+            <div class="back-wrapper">
+                <a href="{{ route('products.index') }}" class="btn-back">
                     Torna al prodotto
                 </a>
             </div>
