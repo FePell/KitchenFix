@@ -21,12 +21,15 @@ class AdminTechnicianController extends Controller
         return view('admin.technicians.technicians', compact('staffTechnician', 'assistanceTechnician', 'technicianType'));
     }
 
-    public function staffCreate() {
+    // Tecnico dello staff ---------------------------------------------------------------------------------------------------------]
+    public function createStaff() //Crea nuovo tecnico dello staff -----------------------------------------------------------------]
+    { 
         $products = Product::all();
         return view('admin.technicians.form-staff', compact('products'));
     }
 
-    public function staffStore(Request $request) {
+    public function staffStore(Request $request) //Aggiunge tecnico dello staff nel database ---------------------------------------]
+    { 
         $request->validate([
             'username' => 'required|string|max:255',
             'password' => 'required|string',
@@ -53,12 +56,14 @@ class AdminTechnicianController extends Controller
             ->with('success', 'Tecnico staff creato con successo.');
     }
 
-    public function staffEdit(StaffTechnician $technician) {
+    public function editStaff(StaffTechnician $technician) //Modifica dati tecnico dello staff -------------------------------------]
+    { 
         $products = Product::all();
         return view('admin.technicians.form-staff', compact('products', 'technician'));
     }
 
-    public function staffUpdate(Request $request, StaffTechnician $technician) {
+    public function updateStaff(Request $request, StaffTechnician $technician) //Aggiorna tecnico dello staff nel database ---------]
+    { 
         $request->validate([
             'username' => 'required|string|max:255',
             'password' => 'nullable|string',
@@ -86,22 +91,22 @@ class AdminTechnicianController extends Controller
             ->with('success', 'Tecnico staff aggiornato con successo.');
     }
 
-    public function staffDestroy(StaffTechnician $technician) {
+    public function destroyStaff(StaffTechnician $technician) //Rimuove tecnico dello staff dal database ---------------------------]
+    { 
         $technician->delete();
         return redirect()->route('admin.technicians', ['technicianType' => 'staff'])
             ->with('success', 'Tecnico staff rimosso con successo.'); 
     }
+    // -----------------------------------------------------------------------------------------------------------------------------]
 
-    // ----------------------------------------------------------------------------------
-    //      ASSISTANCE
-    // ----------------------------------------------------------------------------------
-
-    public function assistanceCreate() {
+    // Tecnico di assistenza -------------------------------------------------------------------------------------------------------]
+    public function createAssistance() //Crea nuovo tecnico di assistenza ----------------------------------------------------------]
+    { 
         $centers = AssistanceCenter::all();
         return view('admin.technicians.form-assistance', compact('centers'));
     }
     
-    public function assistanceStore(Request $request)
+    public function storeAssistance(Request $request) //Aggiunge tecnico di assistenza nel database --------------------------------]
     {
         $request->validate([
             'username' => 'required|string|max:255',
@@ -132,12 +137,14 @@ class AdminTechnicianController extends Controller
             ->with('success', 'Tecnico assistenza creato con successo.');
     }
 
-    public function assistanceEdit(AssistanceTechnician $technician) {
+    public function editAssistance(AssistanceTechnician $technician) //Modifica dati tecnico di assistenza -------------------------]
+    {
         $centers = AssistanceCenter::all();
         return view('admin.technicians.form-assistance', compact('centers', 'technician'));
     }
 
-    public function assistanceUpdate(Request $request, AssistanceTechnician $technician) {
+    public function updateAssistance(Request $request, AssistanceTechnician $technician) //Aggiorna tecnico di assistenza nel database
+    {
         $request->validate([
             'username' => 'required|string|max:255',
             'password' => 'nullable|string',
@@ -167,9 +174,11 @@ class AdminTechnicianController extends Controller
             ->with('success', 'Tecnico assistenza aggiornato con successo.');      
     }
 
-    public function assistanceDestroy(AssistanceTechnician $technician) {
+    public function destroyAssistance(AssistanceTechnician $technician) //Rimuove tecnico di assistenza dal database ---------------]
+    {
         $technician->delete();
         return redirect()->route('admin.technicians', ['technicianType' => 'assistance'])
             ->with('success', 'Tecnico assistenza rimosso con successo.');      
     }
+    // -----------------------------------------------------------------------------------------------------------------------------]
 }

@@ -16,16 +16,16 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string'],
+            'username' => ['required', 'string'], //
             'password' => ['required', 'string'],
         ];
     }
 
     public function authenticate(): void
     {
-        if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) {
+        if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) { //
             throw ValidationException::withMessages([
-                'username' => __('auth.failed'),
+                'username' => __('auth.failed'), //
             ]);
         }
     }

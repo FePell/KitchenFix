@@ -10,11 +10,15 @@
             {{-- Bottoni di switch ---------------------------------------------------------- --}}
             <div class="admin-technicians-tabs">
                 <a href="{{ route('admin.technicians', ['technicianType' => 'staff']) }}"
-                   class="admin-btn-tab {{ $technicianType === 'staff' ? 'active' : '' }}">
+                   class="admin-btn-tab {{ $technicianType === 'staff' 
+                   ? 'active' 
+                   : '' }}">
                     Staff Aziendale
                 </a>
                 <a href="{{ route('admin.technicians', ['technicianType' => 'assistance']) }}"
-                   class="admin-btn-tab {{ $technicianType === 'assistance' ? 'active' : '' }}">
+                   class="admin-btn-tab {{ $technicianType === 'assistance' 
+                   ? 'active' 
+                   : '' }}">
                     Tecnici Assistenza
                 </a>
             </div>
@@ -47,7 +51,9 @@
                                 <div class="admin-card-info">
                                     <strong>Prodotti:</strong>
                                     @foreach($technician->products as $product)
-                                        <span>{{ $product->name }}{{ !$loop->last ? ',' : '' }}</span>
+                                        <span>{{ $product->name }}{{ !$loop->last 
+                                            ? ',' 
+                                            : '' }}</span>
                                     @endforeach
                                 </div>
                             @endif

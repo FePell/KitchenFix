@@ -12,13 +12,12 @@ class AdminCenterController extends Controller
         $centers = AssistanceCenter::all();
         return view('admin.centers.centers', compact('centers'));
     }
-
-    public function create()
+    public function createCenter() //Crea nuovo centro -----------------------------------------------------------------------------]
     {
         return view('admin.centers.form-center');
     }
 
-    public function store(Request $request)
+    public function storeCenter(Request $request) //Aggiunge centro nel database ---------------------------------------------------]  
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -33,12 +32,12 @@ class AdminCenterController extends Controller
         return redirect()->route('admin.centers');
     }
 
-    public function edit(AssistanceCenter $center)
+    public function editCenter(AssistanceCenter $center) //Modifica dati centro ----------------------------------------------------]
     {
         return view('admin.centers.form-center', compact('center'));
     }
 
-    public function update(Request $request, AssistanceCenter $center)
+    public function updateCenter(Request $request, AssistanceCenter $center) //Aggiorna centro nel database ------------------------]
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -53,7 +52,7 @@ class AdminCenterController extends Controller
         return redirect()->route('admin.centers');
     }
 
-    public function destroy(AssistanceCenter $center)
+    public function destroyCenter(AssistanceCenter $center) //Rimuove centro dal database ------------------------------------------]
     {
         $center->delete();
         return redirect()->route('admin.centers');

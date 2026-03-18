@@ -10,15 +10,15 @@ class AdminProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('admin.products.products', compact('products')); //DA CAPIRE
+        return view('admin.products.products', compact('products'));
     }
 
-    public function create()
+    public function createProduct() //Crea nuovo prodotto --------------------------------------------------------------------------]
     {
         return view('admin.products.form-product');
     }
 
-    public function store(Request $request)
+    public function storeProduct(Request $request) //Aggiunge prodotto nel database ------------------------------------------------] 
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -28,11 +28,9 @@ class AdminProductController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        //Salvataggio immagine
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
 
-        //Creazione prodotto
         Product::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -45,12 +43,12 @@ class AdminProductController extends Controller
             ->with('success', 'Prodotto creato con successo.');
     }
 
-    public function edit(Product $product)
+    public function editProduct(Product $product) //Modifica dati prodotto ---------------------------------------------------------]
     {
         return view('admin.products.form-product', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function updateProduct(Request $request, Product $product) //Aggiorna prodotto nel database -----------------------------]
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -86,7 +84,7 @@ class AdminProductController extends Controller
             ->with('success', 'Prodotto aggiornato con successo.');
     }
 
-    public function destroy(Product $product)
+    public function destroyProduct(Product $product) //Rimuove un prodotto dal database --------------------------------------------]
     {
         $product->delete();
         return redirect()->route('admin.products'); 

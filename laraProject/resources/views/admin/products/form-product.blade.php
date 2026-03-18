@@ -6,11 +6,15 @@
         <div class="container">
             <div class="form-card">
                 <h1 class="form-title">
-                    {{ isset($product) ? 'Modifica' : 'Aggiungi' }} prodotto
+                    {{ isset($product) 
+                    ? 'Modifica' 
+                    : 'Aggiungi' }} prodotto
                 </h1>
 
                 <p class="form-subtitle">
-                    {{ isset($product) ? 'Aggiorna le informazioni del prodotto.' : 'Inserisci i dati del nuovo prodotto.' }}
+                    {{ isset($product) 
+                    ? 'Aggiorna le informazioni del prodotto.' 
+                    : 'Inserisci i dati del nuovo prodotto.' }}
                 </p>
 
                 <form action="{{ isset($product)
@@ -47,7 +51,9 @@
 
                     <div class="form-group">
                         <label for="image">
-                            {{ isset($product) ? 'Nuova immagine' : 'Immagine prodotto' }}
+                            {{ isset($product) 
+                            ? 'Nuova immagine' 
+                            : 'Immagine prodotto' }}
                         </label>
                         <input type="file" name="image" id="image" accept="image/*">
                         @error('image')
@@ -94,7 +100,9 @@
                     {{-- Azioni ------------------------------------------------------------- --}}
                     <div class="form-actions">
                         <button type="submit" class="btn-save">
-                            {{ isset($product) ? 'Salva modifiche' : 'Conferma' }}
+                            {{ isset($product) 
+                            ? 'Salva modifiche' 
+                            : 'Conferma' }}
                         </button>
                         <a href="{{ route('admin.products') }}" class="btn-cancel">
                             Annulla

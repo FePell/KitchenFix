@@ -13,141 +13,146 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminTechnicianController;
 use App\Http\Controllers\AdminCenterController;
 
-//Home Page - Livello 1-2 --------------------------------------------------------------------]
-Route::get('/', function () {
-
+//Generale -----------------------------------------------------------------------------------]
+Route::get('/', function () 
+{
     if (Auth::check()) {
-        return match (Auth::user()->role) {
+        return match (Auth::user()->role) 
+        {
             'staff' => redirect()->route('staff.products'),
             'technician' => redirect()->route('technician'),
             'admin' => redirect()->route('admin.products'),
-            default => redirect()->route('home'), //Cambiare in default => abort(403)???
+            default => redirect()->route('home'), 
         };
     }
     $centers = DB::table('assistance_centers')->get();
     return view('welcome', compact('centers'));
-
+    
 })->name('home');
 
-//Lista Centri di Assistenza -----------------------------------------------------------------]
-Route::get('/centri', [AssistanceCenterController::class, 'index']);
+//Utente - Livello 1 -------------------------------------------------------------------------]
+Route::get('/centri', [AssistanceCenterController::class, 'index']); //Lista centri
 
-//Lista Prodotti Pubblica --------------------------------------------------------------------]
 Route::get('/prodotti', [ProductController::class, 'index'])
-    ->name('products.index'); //Si usa index per le liste
+    ->name('products.index'); //Lista prodotti
 
 Route::get('/products/{product}', [ProductController::class, 'show'])
-    ->name('products.show');
+    ->name('products.show'); //Dettagli prodotto singolo
+//--------------------------------------------------------------------------------------------]
 
 //Area Tecnico - Livello 2 -------------------------------------------------------------------]
-Route::middleware(['auth', 'role:technician'])->group(function () {
-    Route::get('/technician', function () {
+Route::middleware(['auth', 'role:technician'])->group(function () 
+{
+    Route::get('/technician', function () 
+    {
         $centers = DB::table('assistance_centers')->get();
         return view('welcome', compact('centers'));
     })->name('technician');
 
     Route::get('/products/{product}/malfunctions', [ProductController::class, 'malfunctions'])
-        ->name('products.malfunctions');
+        ->name('products.malfunctions'); //Malfunziomenti prodotto 
 });
 //--------------------------------------------------------------------------------------------]
 
 //Area Staff - Livello 3 ---------------------------------------------------------------------]
-Route::middleware(['auth', 'role:staff'])->group(function () {
+Route::middleware(['auth', 'role:staff'])->group(function () 
+{
     Route::get('/staff', [StaffProductController::class, 'index'])
         ->name('staff.products');
 
     Route::get('/staff/products/{product}/malfunctions/create', [StaffProductController::class, 'createMalfunction'])
-        ->name('staff.malfunctions.create');
+        ->name('staff.malfunctions.create'); //Crea nuovo malfunzionamento
 
     Route::post('/staff/products/{product}/malfunctions', [StaffProductController::class, 'storeMalfunction'])
-        ->name('staff.malfunctions.store');
+        ->name('staff.malfunctions.store'); //Aggiunge malfunzionamento nel database  
 
     Route::get('/staff/malfunctions/{malfunction}/edit', [StaffProductController::class, 'editMalfunction'])
-        ->name('staff.malfunctions.edit');
+        ->name('staff.malfunctions.edit'); //Modifica dati malfunzionamento
 
     Route::put('/staff/malfunctions/{malfunction}', [StaffProductController::class, 'updateMalfunction'])
-        ->name('staff.malfunctions.update');
+        ->name('staff.malfunctions.update'); //Aggiorna malfunzionamento nel database
 
     Route::delete('/staff/malfunctions/{malfunction}', [StaffProductController::class, 'destroyMalfunction'])
-        ->name('staff.malfunctions.destroy');
+        ->name('staff.malfunctions.destroy'); //Rimuove malfunzionamento dal database
 });
 //--------------------------------------------------------------------------------------------]
 
 //Area Amministratore - Livello 4 ------------------------------------------------------------]
-Route::middleware(['auth', 'role:admin'])->group(function () {
-
-    //Gestione Prodotti
+Route::middleware(['auth', 'role:admin'])->group(function () 
+{
+    //Gestione Prodotti ----------------------------------]
     Route::get('/admin/products', [AdminProductController::class, 'index'])
         ->name('admin.products');
 
-    Route::get('/admin/products/create', [AdminProductController::class, 'create'])
-        ->name('admin.products.create'); //Creazione nuovo prodotto
+    Route::get('/admin/products/create', [AdminProductController::class, 'createProduct'])
+        ->name('admin.products.create'); //Crea nuovo prodotto
 
-    Route::post('/admin/products', [AdminProductController::class, 'store'])
-        ->name('admin.products.store'); //Aggiunta prodotto nel database  
+    Route::post('/admin/products', [AdminProductController::class, 'storeProduct'])
+        ->name('admin.products.store'); //Aggiunge prodotto nel database  
 
-    Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])
+    Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'editProduct'])
         ->name('admin.products.edit'); //Modifica dati prodotto
 
-    Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])
+    Route::put('/admin/products/{product}', [AdminProductController::class, 'updateProduct'])
         ->name('admin.products.update'); //Aggiorna prodotto nel database
 
-    Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])
-        ->name('admin.products.destroy');
+    Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroyProduct'])
+        ->name('admin.products.destroy'); //Rimuove prodotto dal database
 
-    //Gestione Tecnici
+    //Gestione Tecnici -----------------------------------]
+    //Tecnico dello staff
     Route::get('/admin/technicians', [AdminTechnicianController::class, 'index'])
-    ->name('admin.technicians');
+        ->name('admin.technicians');
     
-    Route::get('/admin/technicians/staff/create', [AdminTechnicianController::class, 'staffCreate'])
-        ->name('admin.technicians.staff-create');
+    Route::get('/admin/technicians/staff/create', [AdminTechnicianController::class, 'createStaff'])
+        ->name('admin.technicians.staff-create'); //Crea nuovo tecnico dello staff
 
-    Route::post('/admin/technicians/staff', [AdminTechnicianController::class, 'staffStore'])
-        ->name('admin.technicians.staff-store');
+    Route::post('/admin/technicians/staff', [AdminTechnicianController::class, 'storeStaff'])
+        ->name('admin.technicians.staff-store'); //Aggiunge tecnico dello staff nel database
+ 
+    Route::get('/admin/technicians/staff/{technician}/edit', [AdminTechnicianController::class, 'editStaff'])
+        ->name('admin.technicians.staff-edit'); //Modifica dati tecnico dello staff 
 
-    Route::get('/admin/technicians/staff/{technician}/edit', [AdminTechnicianController::class, 'staffEdit'])
-        ->name('admin.technicians.staff-edit');
+    Route::put('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'updateStaff'])
+        ->name('admin.technicians.staff-update'); //Aggiorna tecnico dello staff nel database
 
-    Route::put('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'staffUpdate'])
-        ->name('admin.technicians.staff-update');
+    Route::delete('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'destroyStaff'])
+        ->name('admin.technicians.staff-destroy'); //Rimuove tecnico dello staff dal database
 
-    Route::delete('/admin/technicians/staff/{technician}', [AdminTechnicianController::class, 'staffDestroy'])
-        ->name('admin.technicians.staff-destroy');
+    //Tecnico di assistenza
+    Route::get('/admin/technicians/assistance/create', [AdminTechnicianController::class, 'createAssistance'])
+        ->name('admin.technicians.assistance-create'); //Crea nuovo tecnico di assistenza 
 
-    Route::get('/admin/technicians/assistance/create', [AdminTechnicianController::class, 'assistanceCreate'])
-        ->name('admin.technicians.assistance-create');
+    Route::post('/admin/technicians/assistance', [AdminTechnicianController::class, 'storeAssistance'])
+        ->name('admin.technicians.assistance-store'); //Aggiunge tecnico di assistenza nel database
 
-    Route::post('/admin/technicians/assistance', [AdminTechnicianController::class, 'assistanceStore'])
-        ->name('admin.technicians.assistance-store');
+    Route::get('/admin/technicians/assistance/{technician}/edit', [AdminTechnicianController::class, 'editAssistance'])
+        ->name('admin.technicians.assistance-edit'); //Modifica dati tecnico di assistenza 
 
-    Route::get('/admin/technicians/assistance/{technician}/edit', [AdminTechnicianController::class, 'assistanceEdit'])
-        ->name('admin.technicians.assistance-edit');
+    Route::put('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'updateAssistance'])
+        ->name('admin.technicians.assistance-update'); //Aggiorna tecnico di assistenza nel database
 
-    Route::put('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'assistanceUpdate'])
-        ->name('admin.technicians.assistance-update');
+    Route::delete('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'destroyAssistance'])
+        ->name('admin.technicians.assistance-destroy'); //Rimuove tecnico di assistenza dal database
 
-    Route::delete('/admin/technicians/assistance/{technician}', [AdminTechnicianController::class, 'assistanceDestroy'])
-        ->name('admin.technicians.assistance-destroy');
-
-
-    //Gestione Centri
+    //Gestione Centri ------------------------------------]
     Route::get('/admin/centers', [AdminCenterController::class, 'index'])
         ->name('admin.centers');
 
-    Route::get('/admin/centers/create', [AdminCenterController::class, 'create'])
-        ->name('admin.centers.create'); //Creazione nuovo centro
+    Route::get('/admin/centers/create', [AdminCenterController::class, 'createCenter'])
+        ->name('admin.centers.create'); //Crea nuovo centro
 
-    Route::post('/admin/centers', [AdminCenterController::class, 'store'])
-        ->name('admin.centers.store'); //Aggiunta centro nel database    
+    Route::post('/admin/centers', [AdminCenterController::class, 'storeCenter'])
+        ->name('admin.centers.store'); //Aggiunge centro nel database    
 
-    Route::get('/admin/centers/{center}/edit', [AdminCenterController::class, 'edit'])
+    Route::get('/admin/centers/{center}/edit', [AdminCenterController::class, 'editCenter'])
         ->name('admin.centers.edit'); //Modifica dati centro
     
-    Route::put('/admin/centers/{center}', [AdminCenterController::class, 'update'])
+    Route::put('/admin/centers/{center}', [AdminCenterController::class, 'updateCenter'])
         ->name('admin.centers.update'); //Aggiorna centro nel database
 
-    Route::delete('/admin/centers/{center}', [AdminCenterController::class, 'destroy'])
-        ->name('admin.centers.destroy');
+    Route::delete('/admin/centers/{center}', [AdminCenterController::class, 'destroyCenter'])
+        ->name('admin.centers.destroy'); //Rimuove centro dal database
 });
 //--------------------------------------------------------------------------------------------]
 

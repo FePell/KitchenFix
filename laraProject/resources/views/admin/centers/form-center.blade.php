@@ -6,11 +6,15 @@
         <div class="container">
             <div class="form-card">
                 <h1 class="form-title">
-                    {{ isset($center) ? 'Modifica' : 'Aggiungi' }} centro di assistenza
+                    {{ isset($center) 
+                    ? 'Modifica' 
+                    : 'Aggiungi' }} centro di assistenza
                 </h1>
 
                 <p class="form-subtitle">
-                    {{ isset($center) ? 'Aggiorna le informazioni del centro assistenza.' : 'Inserisci i dati del nuovo centro di assistenza.' }}
+                    {{ isset($center) 
+                    ? 'Aggiorna le informazioni del centro assistenza.' 
+                    : 'Inserisci i dati del nuovo centro di assistenza.' }}
                 </p>
 
                 <form action="{{ isset($center)
@@ -47,7 +51,9 @@
                     {{-- Azioni ------------------------------------------------------------- --}}
                     <div class="form-actions">
                         <button type="submit" class="btn-save">
-                            {{ isset($center) ? 'Salva modifiche' : 'Conferma' }}
+                            {{ isset($center) 
+                            ? 'Salva modifiche' 
+                            : 'Conferma' }}
                         </button>
 
                         <a href="{{ route('admin.centers') }}" class="btn-cancel">

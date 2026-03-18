@@ -8,12 +8,13 @@
             <h2>Accedi</h2>
             <p class="auth-subtitle">Inserisci le tue credenziali</p>
 
-            {{-- Errori login --}}
+            {{-- Errori login --------------------------------------------------------------- --}}
             @if ($errors->any())
                 <div style="color:red; margin-bottom:10px;">
                     {{ $errors->first() }}
                 </div>
             @endif
+            {{-- ---------------------------------------------------------------------------- --}}
             
             <form method="POST" action="{{ route('login') }}" class="auth-form-inner">
                 @csrf

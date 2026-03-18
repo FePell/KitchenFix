@@ -62,15 +62,17 @@
                     </div>
                     {{-- -------------------------------------------------------------------- --}}
 
-                    {{-- Centro di Assistenza ----------------------------------------------- --}}
+                    {{-- Indirizzo di Assistenza -------------------------------------------- --}}
                     <div class="form-group">
                         <label for="assistance_center_id">Centro di assistenza</label>
                         <select name="assistance_center_id" id="assistance_center_id">
-                            <option value="">-- Seleziona centro --</option>
+                            <option value="">Seleziona indirizzo centro</option>
                             @foreach($centers as $center)
                                 <option value="{{ $center->id }}"
-                                    {{ old('assistance_center_id', $technician->assistance_center_id ?? '') == $center->id ? 'selected' : '' }}>
-                                    {{ $center->name }}
+                                    {{ old('assistance_center_id', $technician->assistance_center_id ?? '') == $center->id 
+                                    ? 'selected' 
+                                    : '' }}>
+                                    {{ $center->address }}
                                 </option>
                             @endforeach
                         </select>
@@ -94,7 +96,9 @@
                     {{-- Password ----------------------------------------------------------- --}}
                     <div class="form-group">
                         <label for="password">
-                            Password {{ isset($technician) ? '(lascia vuoto per non modificare)' : '' }}
+                            Password {{ isset($technician) 
+                            ? '(lascia vuoto per non modificare)' 
+                            : '' }}
                         </label>
                         <input type="password" name="password" id="password">
                         @error('password')
@@ -106,7 +110,9 @@
                     {{-- Azioni ------------------------------------------------------------- --}}
                     <div class="form-actions">
                         <button type="submit" class="btn-save">
-                            {{ isset($technician) ? 'Salva modifiche' : 'Conferma' }}
+                            {{ isset($technician) 
+                            ? 'Salva modifiche' 
+                            : 'Conferma' }}
                         </button>
 
                         <a href="{{ route('admin.technicians', ['technicianType' => 'assistance']) }}" class="btn-cancel">

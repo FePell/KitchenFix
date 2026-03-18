@@ -52,9 +52,9 @@
             </div>
             {{-- ---------------------------------------------------------------------------- --}}
 
-            {{-- Bottone x tornare ai Prodotti ---------------------------------------------- --}}
+            {{-- Bottone x tornare al Prodotti ---------------------------------------------- --}}
             <div class="back-wrapper">
-                <a href="{{ route('products.index') }}" class="btn-back">
+                <a href="{{ route('products.show', $product) }}" class="btn-back">
                     Torna al prodotto
                 </a>
             </div>

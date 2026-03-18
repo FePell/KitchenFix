@@ -6,7 +6,9 @@
         <div class="container">
             <div class="form-card">
                 <h1 class="form-title">
-                    {{ isset($technician) ? 'Modifica' : 'Aggiungi' }} tecnico staff
+                    {{ isset($technician) 
+                    ? 'Modifica' 
+                    : 'Aggiungi' }} tecnico staff
                 </h1>
 
                 <form action="{{ isset($technician)
@@ -45,12 +47,16 @@
                         <label>Prodotti associati</label>
                         <div class="admin-checkbox-grid">
                             @php
-                                $checkedProducts = old('products', isset($technician) ? $technician->products->pluck('id')->toArray() : []);
+                                $checkedProducts = old('products', isset($technician) 
+                                ? $technician->products->pluck('id')->toArray() 
+                                : []);
                             @endphp
                             @foreach($products as $product)
                                 <label class="admin-checkbox-item">
                                     <input type="checkbox" name="products[]" value="{{ $product->id }}"
-                                        {{  in_array($product->id, $checkedProducts) ? 'checked' : '' }}>
+                                        {{ in_array($product->id, $checkedProducts) 
+                                        ? 'checked' 
+                                        : '' }}>
                                     {{ $product->name }}
                                 </label>
                             @endforeach
@@ -75,7 +81,9 @@
                     {{-- Password ----------------------------------------------------------- --}}
                     <div class="form-group">
                         <label for="password">
-                            Password {{ isset($technician) ? '(lascia vuoto per non modificare)' : '' }}
+                            Password {{ isset($technician) 
+                            ? '(lascia vuoto per non modificare)' 
+                            : '' }}
                         </label>
                         <input type="password" name="password" id="password">
                         @error('password')
@@ -87,7 +95,9 @@
                     {{-- Azioni ------------------------------------------------------------- --}}
                     <div class="form-actions">
                         <button type="submit" class="btn-save">
-                            {{ isset($technician) ? 'Salva modifiche' : 'Conferma' }}
+                            {{ isset($technician) 
+                            ? 'Salva modifiche' 
+                            : 'Conferma' }}
                         </button>
 
                         <a href="{{ route('admin.technicians', ['technicianType' => 'staff']) }}" class="btn-cancel">

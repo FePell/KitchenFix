@@ -14,12 +14,12 @@ class StaffProductController extends Controller
         return view('staff.products', compact('products'));
     }
 
-    public function createMalfunction(Product $product)
+    public function createMalfunction(Product $product) //Crea nuovo malfunzionamento ----------------------------------------------]
     {
         return view('staff.create-malfunction', compact('product'));
     }
 
-    public function storeMalfunction(Request $request, Product $product)
+    public function storeMalfunction(Request $request, Product $product) //Aggiunge malfunzionamento nel database ------------------]
     {
         $request->validate([
             'description' => 'required|string|max:255',
@@ -33,12 +33,12 @@ class StaffProductController extends Controller
         return redirect()->route('staff.products')->with('success', 'Malfunzionamento aggiunto con successo.');
     }
 
-    public function editMalfunction(Malfunction $malfunction)
+    public function editMalfunction(Malfunction $malfunction) //Modifica dati malfunzionamento -------------------------------------]
     {
         return view('staff.edit-malfunction', compact('malfunction'));
     }
 
-    public function updateMalfunction(Request $request, Malfunction $malfunction)
+    public function updateMalfunction(Request $request, Malfunction $malfunction) //Aggiorna malfunzionamento nel database ---------]
     {
         $request->validate([
             'description' => 'required|string|max:255',
@@ -51,7 +51,7 @@ class StaffProductController extends Controller
         return redirect()->route('staff.products');
     }
 
-    public function destroyMalfunction(Malfunction $malfunction)
+    public function destroyMalfunction(Malfunction $malfunction) //Rimuove malfunzionamento dal database ---------------------------]
     {
         $malfunction->delete();
         return redirect()->route('staff.products');

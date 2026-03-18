@@ -10,6 +10,7 @@
                     <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}">
                 </div>
 
+                {{-- Dettagli Prodotto ------------------------------------------------------ --}}
                 <div class="product-details-info">
                     <h1 class="product-details-title">{{ $product->name }}</h1>
 
@@ -28,6 +29,7 @@
                         <p>{{ $product->installation }}</p>
                     </div>
 
+                    {{-- Accesso ai Malfunzionamenti ---------------------------------------- --}}
                     @auth
                         @if(auth()->user()->role === 'technician')
                             <div class="product-tech-actions">
@@ -37,15 +39,18 @@
                             </div>
                         @endif
                     @endauth
+                    {{-- -------------------------------------------------------------------- --}}
                 </div>
+                {{-- ------------------------------------------------------------------------ --}}
             </div>
 
+            {{-- Bottone x tornare al Catalogo ---------------------------------------------- --}}
             <div class="back-wrapper">
                 <a href="{{ route('products.index') }}" class="btn-back">
                     Torna al catalogo
                 </a>
             </div>
-
+            {{-- ---------------------------------------------------------------------------- --}}
         </div>
     </section>
     @endsection

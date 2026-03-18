@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request) //Lista prodotti -----------------------------------------------------------------------]
     {
         $query = Product::with('malfunctions');
         $searchError = null;
@@ -47,13 +47,13 @@ class ProductController extends Controller
         return view('products.products', compact('products', 'searchError'));
     }
 
-    public function show(Product $product)
+    public function show(Product $product) //Dettagli prodotto singolo -------------------------------------------------------------]
     {
         $product->load('malfunctions');
         return view('products.product-details', compact('product'));
     }
 
-    public function malfunctions(Request $request, Product $product)
+    public function malfunctions(Request $request, Product $product) //Malfunziomenti prodotto -------------------------------------]
     {
         $query = $product->malfunctions();
 
