@@ -39,8 +39,7 @@ class AdminProductController extends Controller
             'image' => $imageName
         ]);
 
-        return redirect()->route('admin.products')
-            ->with('success', 'Prodotto creato con successo.');
+        return redirect()->route('admin.products');
     }
 
     public function editProduct(Product $product) //Modifica dati prodotto ---------------------------------------------------------]
@@ -72,7 +71,7 @@ class AdminProductController extends Controller
                 unlink(public_path('images/' . $product->image));
             }
 
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time() . '.' . $request->image->extension(); //Genera nome immagine
             $request->image->move(public_path('images'), $imageName);
 
             $data['image'] = $imageName;
@@ -80,13 +79,16 @@ class AdminProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('admin.products')
-            ->with('success', 'Prodotto aggiornato con successo.');
+        return redirect()->route('admin.products');
     }
 
     public function destroyProduct(Product $product) //Rimuove un prodotto dal database --------------------------------------------]
     {
+        if ($product->image && file_exists(public_path('images/' . $product->image))) {
+            unlink(public_path('images/' . $product->image));
+        }
         $product->delete();
-        return redirect()->route('admin.products'); 
+
+        return redirect()->route('admin.products');
     }
 }

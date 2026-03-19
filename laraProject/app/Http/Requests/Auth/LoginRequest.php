@@ -24,9 +24,7 @@ class LoginRequest extends FormRequest
     public function authenticate(): void
     {
         if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) { //
-            throw ValidationException::withMessages([
-                'username' => __('auth.failed'), //
-            ]);
+            throw ValidationException::withMessages(['username' => 'Credenziali non valide.']);
         }
     }
 }

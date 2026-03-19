@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+//Le route sono solo punti di accesso, la logica deve essere gestita dai controller
+
 use Illuminate\Support\Facades\Route;
+//Generale
+use App\Http\Controllers\HomeController;
 //Controller livello 1-2 - Guest e Tecnico
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AssistanceCenterController;
 //Controller livello 3 - Staff
 use App\Http\Controllers\StaffProductController;
 //Controller livello 4 - Amministratore
@@ -14,26 +15,11 @@ use App\Http\Controllers\AdminTechnicianController;
 use App\Http\Controllers\AdminCenterController;
 
 //Generale -----------------------------------------------------------------------------------]
-Route::get('/', function () 
-{
-    if (Auth::check()) {
-        return match (Auth::user()->role) 
-        {
-            'staff' => redirect()->route('staff.products'),
-            'technician' => redirect()->route('technician'),
-            'admin' => redirect()->route('admin.products'),
-            default => redirect()->route('home'), 
-        };
-    }
-    $centers = DB::table('assistance_centers')->get();
-    return view('welcome', compact('centers'));
-    
-})->name('home');
+Route::get('/', [HomeController::class, 'index']) //Il simbolo / rappresenta la homepage
+    ->name('home'); 
 
 //Utente - Livello 1 -------------------------------------------------------------------------]
-Route::get('/centri', [AssistanceCenterController::class, 'index']); //Lista centri
-
-Route::get('/prodotti', [ProductController::class, 'index'])
+Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index'); //Lista prodotti
 
 Route::get('/products/{product}', [ProductController::class, 'show'])
@@ -43,12 +29,6 @@ Route::get('/products/{product}', [ProductController::class, 'show'])
 //Area Tecnico - Livello 2 -------------------------------------------------------------------]
 Route::middleware(['auth', 'role:technician'])->group(function () 
 {
-    Route::get('/technician', function () 
-    {
-        $centers = DB::table('assistance_centers')->get();
-        return view('welcome', compact('centers'));
-    })->name('technician');
-
     Route::get('/products/{product}/malfunctions', [ProductController::class, 'malfunctions'])
         ->name('products.malfunctions'); //Malfunziomenti prodotto 
 });

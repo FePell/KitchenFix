@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AssistanceCenter extends Model
@@ -12,7 +11,7 @@ class AssistanceCenter extends Model
         'address',
     ];
 
-    public function assistanceTechnicians()
+    public function assistanceTechnicians() //Un centro può avere da 0..N tecnici di assistenza
     {
         return $this->hasMany(AssistanceTechnician::class);
     }

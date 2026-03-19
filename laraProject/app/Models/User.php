@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -19,14 +17,14 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected function casts(): array
+    protected function casts(): array 
     {
         return [
             'password' => 'hashed',
         ];
     }
 
-    public function staffTechnician()
+    public function staffTechnician() 
     {
         return $this->hasOne(StaffTechnician::class);
     }

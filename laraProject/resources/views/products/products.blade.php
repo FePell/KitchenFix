@@ -8,26 +8,27 @@
 
             {{-- Barra di ricerca ----------------------------------------------------------- --}}
             <div class="search-wrapper">
-                <form action="{{ route('products.index') }}" method="GET" class="search-form">
-                    <input 
-                        type="text" 
-                        name="search" 
-                        placeholder="Cerca prodotto..." 
-                        value="{{ request('search') }}"
-                    >
+                <form action="{{ route('products.index') }}" method="GET" class="search-form" id="search-form">
+                    <input type="text" 
+                           name="search" 
+                           id="search"
+                           placeholder="Cerca prodotto..." 
+                           value="{{ request('search') }}">
                     <button type="submit">Cerca</button>
                 </form>
             </div>
 
-            @if(!empty($searchError))
-                <p class="search-error">{{ $searchError }}</p>
-            @endif
+            <p class="search-error" id="search-error">
+                @if(!empty($searchError))
+                    {{ $searchError }}
+                @endif
+            </p>
             {{-- ---------------------------------------------------------------------------- --}}
 
             {{-- Lista dei Prodotti --------------------------------------------------------- --}}
-            <div class="products-main">
+            <div class="products-main" id="products-container">
                 @if(!isset($products) || $products->count() === 0)
-                    <p class="no-products">Nessun prodotto disponibile al momento.</p>
+                    <p class="no-products">Nessun prodhgvhjvto trovato.</p>
                 @else
                     <div class="products-grid">
                         @foreach($products as $product)

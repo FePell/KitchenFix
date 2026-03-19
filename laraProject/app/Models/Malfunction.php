@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Malfunction extends Model
@@ -13,7 +12,7 @@ class Malfunction extends Model
         'solution',
     ];
 
-    public function product()
+    public function product() //Un malfunzionamento appartiene ad 1 solo prodotto
     {
         return $this->belongsTo(Product::class);
     }

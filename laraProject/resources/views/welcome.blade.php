@@ -8,19 +8,26 @@
         <div class="container">
             <h2>La nostra azienda</h2>
             <p>
-                KitchenFix è specializzata nell’assistenza tecnica per elettrodomestici da cucina,
-                offrendo supporto a tecnici e centri assistenza nella gestione degli interventi
-                e nella consultazione delle informazioni sui prodotti.
+                KitchenFix è un'azienda specializzata nell’assistenza tecnica per elettrodomestici da cucina.
             </p>
             <p>
-                Attraverso la nostra piattaforma è possibile accedere a schede tecniche,
-                individuare i problemi più frequenti e consultare soluzioni operative
-                per forni, microonde, cappe, e altri dispositivi da cucina.
+                La nostra piattaforma permette la visualizzazione delle schede tecniche dei prodotti dell'azienda
+                a tutti coloro che non sono registrati, mentre offre informazioni aggiuntive a tutti
+                i tecnici dei centri di assistenza ai quali è stato assegnato un account.
             </p>
             <p>
-                Il nostro obiettivo è rendere il servizio di assistenza più rapido,
-                preciso e organizzato, semplificando il lavoro quotidiano dei professionisti del settore.
+                Un particolare ringraziamento ai tecnici dello staff, che si occupano periodicamente di gestire
+                i propri prodotti, aggiornando i loro malfunzionamenti e fornendo le opportune soluzioni, e al nostro 
+                amministratore che gestisce l'intero sito, aggiornando le semplici schede prodotto, i centri di 
+                assistenza e tutto il gruppo di tecnici, fornendo i rispettivi account.
             </p>
+            <p>
+                Per assistenza o informazioni riguardo la creazione di un account contattateci pure visualizzando
+                l'opportuna sezione contatti.
+            </p>
+            <a href="{{ asset('METTERE-PDF') }}" target="_blank">
+                SCRIVERE QUALCOSA DI SENSATO
+            </a>
         </div>
     </section>
     {{-- ------------------------------------------------------------------------------------ --}}

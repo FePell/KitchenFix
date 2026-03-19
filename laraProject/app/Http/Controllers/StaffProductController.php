@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Malfunction;
 
 class StaffProductController extends Controller
 {
-    public function index()
+    public function index() //Lista prodotti associati allo staff ------------------------------------------------------------------]
     {
-        $products = Product::with('malfunctions')->get();
+        $staffTechnician = Auth::user()->staffTechnician;
+        $products = $staffTechnician->products()
+        ->with('malfunctions')->get();
+
         return view('staff.products', compact('products'));
     }
 
     public function createMalfunction(Product $product) //Crea nuovo malfunzionamento ----------------------------------------------]
     {
-        return view('staff.create-malfunction', compact('product'));
+        return view('staff.form-malfunction', compact('product'));
     }
 
     public function storeMalfunction(Request $request, Product $product) //Aggiunge malfunzionamento nel database ------------------]
@@ -30,12 +34,12 @@ class StaffProductController extends Controller
             'description' => $request->description,
             'solution' => $request->solution,
         ]);
-        return redirect()->route('staff.products')->with('success', 'Malfunzionamento aggiunto con successo.');
+        return redirect()->route('staff.products');
     }
 
     public function editMalfunction(Malfunction $malfunction) //Modifica dati malfunzionamento -------------------------------------]
     {
-        return view('staff.edit-malfunction', compact('malfunction'));
+        return view('staff.form-malfunction', compact('malfunction'));
     }
 
     public function updateMalfunction(Request $request, Malfunction $malfunction) //Aggiorna malfunzionamento nel database ---------]

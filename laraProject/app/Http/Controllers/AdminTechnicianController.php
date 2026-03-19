@@ -28,10 +28,10 @@ class AdminTechnicianController extends Controller
         return view('admin.technicians.form-staff', compact('products'));
     }
 
-    public function staffStore(Request $request) //Aggiunge tecnico dello staff nel database ---------------------------------------]
+    public function storeStaff(Request $request) //Aggiunge tecnico dello staff nel database ---------------------------------------]
     { 
         $request->validate([
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username',
             'password' => 'required|string',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -50,10 +50,9 @@ class AdminTechnicianController extends Controller
             'last_name' => $request->last_name,
         ]);
 
-        $technician->products()->sync($request->products ?? []);
+        $technician->products()->sync($request->products);
 
-        return redirect()->route('admin.technicians', ['technicianType' => 'staff'])
-            ->with('success', 'Tecnico staff creato con successo.');
+        return redirect()->route('admin.technicians', ['technicianType' => 'staff']);
     }
 
     public function editStaff(StaffTechnician $technician) //Modifica dati tecnico dello staff -------------------------------------]
@@ -64,38 +63,35 @@ class AdminTechnicianController extends Controller
 
     public function updateStaff(Request $request, StaffTechnician $technician) //Aggiorna tecnico dello staff nel database ---------]
     { 
+        $user = User::find($technician->user_id);
         $request->validate([
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,'. $user->id,
             'password' => 'nullable|string',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'products' => 'required|array',
         ]);
 
-        $user = User::find($technician->user_id);
         $user->username = $request->username;
         if ($request->filled('password')) {
             $user->password = $request->password;
         }
         $user->save();
 
-
         $technician->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
         ]);
 
-        $technician->products()->sync($request->products ?? []);
+        $technician->products()->sync($request->products);
 
-        return redirect()->route('admin.technicians', ['technicianType' => 'staff'])
-            ->with('success', 'Tecnico staff aggiornato con successo.');
+        return redirect()->route('admin.technicians', ['technicianType' => 'staff']);
     }
 
     public function destroyStaff(StaffTechnician $technician) //Rimuove tecnico dello staff dal database ---------------------------]
     { 
         $technician->delete();
-        return redirect()->route('admin.technicians', ['technicianType' => 'staff'])
-            ->with('success', 'Tecnico staff rimosso con successo.'); 
+        return redirect()->route('admin.technicians', ['technicianType' => 'staff']);
     }
     // -----------------------------------------------------------------------------------------------------------------------------]
 
@@ -109,7 +105,7 @@ class AdminTechnicianController extends Controller
     public function storeAssistance(Request $request) //Aggiunge tecnico di assistenza nel database --------------------------------]
     {
         $request->validate([
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username',
             'password' => 'required|string',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -133,8 +129,7 @@ class AdminTechnicianController extends Controller
             'assistance_center_id' => $request->assistance_center_id,
         ]);
 
-        return redirect()->route('admin.technicians', ['technicianType' => 'assistance'])
-            ->with('success', 'Tecnico assistenza creato con successo.');
+        return redirect()->route('admin.technicians', ['technicianType' => 'assistance']);
     }
 
     public function editAssistance(AssistanceTechnician $technician) //Modifica dati tecnico di assistenza -------------------------]
@@ -145,8 +140,9 @@ class AdminTechnicianController extends Controller
 
     public function updateAssistance(Request $request, AssistanceTechnician $technician) //Aggiorna tecnico di assistenza nel database
     {
+        $user = User::find($technician->user_id);
         $request->validate([
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,'. $user->id,
             'password' => 'nullable|string',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -155,7 +151,6 @@ class AdminTechnicianController extends Controller
             'assistance_center_id' => 'required|int',
         ]);
 
-        $user = User::find($technician->user_id);
         $user->username = $request->username;
         if ($request->filled('password')) {
             $user->password = $request->password;
@@ -170,15 +165,13 @@ class AdminTechnicianController extends Controller
             'assistance_center_id' => $request->assistance_center_id,
         ]);
 
-        return redirect()->route('admin.technicians', ['technicianType' => 'assistance'])
-            ->with('success', 'Tecnico assistenza aggiornato con successo.');      
+        return redirect()->route('admin.technicians', ['technicianType' => 'assistance']);   
     }
 
     public function destroyAssistance(AssistanceTechnician $technician) //Rimuove tecnico di assistenza dal database ---------------]
     {
         $technician->delete();
-        return redirect()->route('admin.technicians', ['technicianType' => 'assistance'])
-            ->with('success', 'Tecnico assistenza rimosso con successo.');      
+        return redirect()->route('admin.technicians', ['technicianType' => 'assistance']);  
     }
     // -----------------------------------------------------------------------------------------------------------------------------]
 }

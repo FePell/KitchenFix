@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AssistanceTechnician extends Model
@@ -16,16 +15,13 @@ class AssistanceTechnician extends Model
         'assistance_center_id',
     ];
 
-    public function user()
+    public function user() //Un tecnico di assistenza appartiene ad 1 account utente
     {
         return $this->belongsTo(User::class);
     }
 
-    public function assistanceCenter()
+    public function assistanceCenter() //Un assistente tecnico appartiene ad 1 solo centro
     {
-        return $this->belongsTo(
-            AssistanceCenter::class,
-            'assistance_center_id'
-        );
+        return $this->belongsTo(AssistanceCenter::class,'assistance_center_id');
     }
 }

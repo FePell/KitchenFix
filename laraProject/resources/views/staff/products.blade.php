@@ -48,7 +48,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3">Nessun malfunzionamento presente.</td>
+                                            <td colspan="3">Nessun malfunzionamento segnalato.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

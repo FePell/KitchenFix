@@ -44,6 +44,25 @@ class ProductController extends Controller
         }
 
         $products = $query->get();
+
+        //AJAX ---------------------------------------------------------------------------------------------------------------------]
+        if ($request->ajax()) {
+            $productsAjax = $products->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'description' => $product->description,
+                    'image' => $product->image,
+                ];
+            });
+
+            return response()->json([
+                'products' => $productsAjax,
+                'searchError' => $searchError,
+            ]);
+        }
+        //--------------------------------------------------------------------------------------------------------------------------]
+
         return view('products.products', compact('products', 'searchError'));
     }
 

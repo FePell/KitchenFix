@@ -95,8 +95,8 @@
                                 {{ $technician->birth_date }}
                             </div>
                             <div class="admin-card-info">
-                                <strong>Centro:</strong>
-                                {{ $technician->assistanceCenter->name }}
+                                <strong>Indirizzo centro:</strong>
+                                {{ $technician->assistanceCenter->address }}
                             </div>
 
                             {{-- Azioni ----------------------------------------------------- --}}

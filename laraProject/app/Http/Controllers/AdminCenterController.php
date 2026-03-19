@@ -21,7 +21,7 @@ class AdminCenterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'address' => 'required|string|max:255|unique:assistance_centers,address',
         ]);
 
         AssistanceCenter::create([
@@ -41,7 +41,7 @@ class AdminCenterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'address' => 'required|string|max:255|unique:assistance_centers,address,'. $center->id,
         ]);
 
         $center->update([

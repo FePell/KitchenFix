@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -15,15 +14,12 @@ class Product extends Model
         'image',
     ];
 
-    public function staffTechnicians()
+    public function staffTechnicians() //Un prodotto può essere gestito da 0..N tecnici staff
     {
-        return $this->belongsToMany(
-            StaffTechnician::class,
-            'product_staff_technician'
-        );
+        return $this->belongsToMany(StaffTechnician::class,'product_staff_technician');
     }
 
-    public function malfunctions()
+    public function malfunctions() //Un prodotto può avere da 0..N malfunzionamenti
     {
         return $this->hasMany(Malfunction::class);
     }
