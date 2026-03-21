@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AssistanceCenter;
 
 class HomeController extends Controller
 {
@@ -12,7 +12,7 @@ class HomeController extends Controller
         /* Se non si è loggati o se si è tecnici di assistenza, 
         si viene indirizzati nella pagina welcome */
         if (!Auth::check() || Auth::user()->role === 'technician') { 
-            $centers = DB::table('assistance_centers')->get();    
+            $centers = AssistanceCenter::all();   
             return view('welcome', compact('centers'));
         }
 

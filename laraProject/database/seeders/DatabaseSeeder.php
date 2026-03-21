@@ -7,13 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 //Il file Seeder serve solo per inserire dati iniziali nel database quando si esegue php artisan db:seed
-//Il Seeder non si aggiorna automaticamente quando si modificano i dati dal sito
+//Il Seeder non si aggiorna quando si modificano i dati dal sito (es. Modifica/Elimina X)
 //Il Seeder è solo uno script di inserimento iniziale dei dati nel database
 
 /*Se eseguiamo php artisan migrate:fresh --seed, verranno cancellate tutte le tabelle ed eventuali
 modifiche fatte tramite il sito, e nel database verranno reinseriti i dati presenti nel Seeder*/
 
-//Questo file è modificabile SOLO a mano, non tramite i pulsanti "Modifica/Elimina X" presenti nel sito
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
@@ -21,28 +20,28 @@ class DatabaseSeeder extends Seeder
         //Centro di Assistenza-------------------------------------------------
         $centerId = DB::table('assistance_centers')->insertGetId([
             'name' => 'SmartFix',
-            'address' => 'Via Roma 10',
+            'address' => 'Via Roma 10, AN',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $centerId = DB::table('assistance_centers')->insertGetId([
             'name' => 'FixHome',
-            'address' => 'Via Enzo Ferrari 7',
+            'address' => 'Via Enzo Ferrari 7, AN',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $centerId = DB::table('assistance_centers')->insertGetId([
             'name' => 'TecnoRipara',
-            'address' => 'Via Dante Alighieri 3',
+            'address' => 'Via Dante Alighieri 3, FM',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         $centerId = DB::table('assistance_centers')->insertGetId([
             'name' => 'ElettroCare',
-            'address' => 'Via Agrigento 9',
+            'address' => 'Via Agrigento 9, MC',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

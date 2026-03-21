@@ -29,6 +29,7 @@ class StaffProductController extends Controller
             'description' => 'required|string|max:255',
             'solution' => 'required|string|max:255',
         ]);
+        
         Malfunction::create([
             'product_id' => $product->id,
             'description' => $request->description,
@@ -48,6 +49,7 @@ class StaffProductController extends Controller
             'description' => 'required|string|max:255',
             'solution' => 'required|string|max:255',
         ]);
+
         $malfunction->update([
             'description' => $request->description,
             'solution' => $request->solution,
