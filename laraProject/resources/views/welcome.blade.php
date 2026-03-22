@@ -25,8 +25,8 @@
                 Per assistenza o informazioni riguardo la creazione di un account contattateci pure visualizzando
                 l'opportuna sezione contatti.
             </p>
-            <a href="{{ asset('METTERE-PDF') }}" target="_blank">
-                SCRIVERE QUALCOSA DI SENSATO
+            <a href="{{ asset('docs/Tesina_KitchenFix.pdf') }}" target="_blank">
+                Visualizza tesina progetto
             </a>
         </div>
     </section>
