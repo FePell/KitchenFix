@@ -32,7 +32,7 @@ class AdminTechnicianController extends Controller
     { 
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'products' => 'required|array',
@@ -66,7 +66,7 @@ class AdminTechnicianController extends Controller
         $user = User::find($technician->user_id);
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username,'. $user->id,
-            'password' => 'nullable|string',
+            'password' => 'nullable|string|min:8',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'products' => 'required|array',
@@ -107,7 +107,7 @@ class AdminTechnicianController extends Controller
     {
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'birth_date' => 'required|string',
@@ -144,7 +144,7 @@ class AdminTechnicianController extends Controller
         $user = User::find($technician->user_id);
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username,'. $user->id,
-            'password' => 'nullable|string',
+            'password' => 'nullable|string|min:8',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'birth_date' => 'required|string',

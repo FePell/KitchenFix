@@ -5,29 +5,60 @@
 
     {{-- Sezione Chi siamo ------------------------------------------------------------------ --}}
     <section id="chi-siamo" class="section-about">
-        <div class="container">
+        <div class="about-container">
             <h2>La nostra azienda</h2>
-            <p>
-                KitchenFix è un'azienda specializzata nell’assistenza tecnica per elettrodomestici da cucina.
-            </p>
-            <p>
-                La nostra piattaforma permette la visualizzazione delle schede tecniche dei prodotti dell'azienda
-                a tutti coloro che non sono registrati, mentre offre informazioni aggiuntive a tutti
-                i tecnici dei centri di assistenza ai quali è stato assegnato un account.
-            </p>
-            <p>
-                Un particolare ringraziamento ai tecnici dello staff, che si occupano periodicamente di gestire
-                i propri prodotti, aggiornando i loro malfunzionamenti e fornendo le opportune soluzioni, e al nostro 
-                amministratore che gestisce l'intero sito, aggiornando le semplici schede prodotto, i centri di 
-                assistenza e tutto il gruppo di tecnici, fornendo i rispettivi account.
-            </p>
-            <p>
-                Per assistenza o informazioni riguardo la creazione di un account contattateci pure visualizzando
-                l'opportuna sezione contatti.
-            </p>
-            <a href="{{ asset('docs/Tesina_KitchenFix.pdf') }}" target="_blank">
-                Visualizza tesina progetto
-            </a>
+
+            <div class="about-intro">
+                <p>
+                    KitchenFix è un'azienda specializzata nell’assistenza tecnica per elettrodomestici da cucina.
+                </p>
+                <p>
+                    La piattaforma è accessibile pubblicamente e consente a tutti gli utenti non autenticati di consultare
+                    il catalogo dei prodotti, visualizzandone le schede tecniche, le descrizioni e le informazioni di utilizzo.
+                </p>
+                <p>
+                    L’accesso alle funzionalità avanzate è riservato esclusivamente agli utenti autorizzati, i cui account
+                    vengono creati e gestiti dall’amministratore. Il sistema prevede tre livelli di accesso.
+                </p>
+            </div>
+
+            <div class="about-roles">
+                <div class="role-card">
+                    <h3>Tecnici di assistenza</h3>
+                    <p>
+                        Accedono al sito pubblico come gli utenti base, ma con funzionalità aggiuntive che permettono di
+                        visualizzare, per ogni prodotto, i malfunzionamenti e le relative soluzioni tecniche.
+                    </p>
+                </div>
+
+                <div class="role-card">
+                    <h3>Tecnici dello staff</h3>
+                    <p>
+                        Accedono a un’area riservata in cui visualizzano i prodotti assegnati e possono aggiungere, 
+                        modificare ed eliminare i malfunzionamenti e le relative soluzioni.
+                    </p>
+                </div>
+
+                <div class="role-card">
+                    <h3>Amministratore</h3>
+                    <p>
+                        Accede a un’area gestionale dedicata con la quale può gestire l’intero sistema aggiungendo,  
+                        modificando ed eliminando i centri di assistenza, gli account dei tecnici e tutti i prodotti
+                        dell'azienda, senza intervenire sui malfunzionamenti. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-footer">
+                <p>
+                    Per assistenza o per richiedere informazioni relative alla creazione di un account, è possibile
+                    contattare l’azienda tramite l’apposita sezione contatti.
+                </p>
+                <br>
+                <a class="btn-home" href="{{ asset('docs/Tesina_KitchenFix.pdf') }}" target="_blank">
+                    Visualizza tesina progetto
+                </a>
+            </div>
         </div>
     </section>
     {{-- ------------------------------------------------------------------------------------ --}}
@@ -54,12 +85,10 @@
                     <img src="{{ asset('images/piano1.png') }}" alt="Piano">
                 </div>
             </div>
-
-            <div class="catalogo-button">
-                <a href="{{ route('products.index') }}" class="btn-catalogo">
+            <br><br>
+            <a href="{{ route('products.index') }}" class="btn-home">
                     Esplora catalogo
-                </a>
-            </div>
+            </a>
         </div>
     </section>
     {{-- ------------------------------------------------------------------------------------ --}}
@@ -76,6 +105,7 @@
                 </div>
                 @endforeach
             </div>
+            <br><br>
         </div>
     </section>
     {{-- ------------------------------------------------------------------------------------ --}}

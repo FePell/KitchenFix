@@ -9,12 +9,12 @@ class ProductController extends Controller
 {
     public function index(Request $request) //Lista prodotti -----------------------------------------------------------------------]
     {
+        $search = trim($request->input('search', ''));
         $query = Product::query();
         $searchError = null;
 
-        if ($request->filled('search')) {
-            $search = trim($request->search);
-
+        if ($search !== '') 
+        {
             if (str_contains($search, '*')) 
             {
                 if (substr_count($search, '*') === 1 && str_ends_with($search, '*')) 
@@ -22,26 +22,38 @@ class ProductController extends Controller
                     $term = substr($search, 0, -1);
 
                     if ($term !== '') {
-                        $query->where('name', 'like', $term . '%');
+                        $query->where(function ($q) use ($term) {
+                            $q->where('name', 'like', $term . '%')
+                            ->orWhere('name', 'like', '% ' . $term . '%');
+                        });
                     } else {
                         $searchError = 'Inserisci almeno un carattere prima di *.';
                         $query->whereRaw('1 = 0');
                     }
-                } else 
-                {
+                } else {
                     $searchError = 'Il carattere * è ammesso solo come ultimo carattere.';
                     $query->whereRaw('1 = 0');
                 }
-            } else 
-            {
+            } else {
                 $query->where(function ($q) use ($search) {
-                    $q->where('name', 'like', '% ' . $search . ' %')
-                      ->orWhere('name', 'like', $search . ' %')
-                      ->orWhere('name', 'like', '% ' . $search)
-                      ->orWhere('name', $search);
+                    $q->where('name', $search)
+                    ->orWhere('name', 'like', $search . ' %')
+                    ->orWhere('name', 'like', '% ' . $search)
+                    ->orWhere('name', 'like', '% ' . $search . ' %');
                 });
             }
         }
+
+        $products = $query->get();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'products' => $products,
+                'searchError' => $searchError,
+            ]);
+        }
+
+        return view('products.products', compact('products', 'searchError'));
 
         $products = $query->get();
 

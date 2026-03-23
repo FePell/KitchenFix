@@ -16,7 +16,7 @@ $(function () { //Esegue questo codice quando la pagina è pronta
         let ricerca = $('#search').val(); 
 
         $.ajax({ //Chiamata AJAX - Invia richiesta al server senza ricaricare la pagina
-            url: "/products", //Dove viene mandata la richiesta
+            url: window.searchURL, //Dove viene mandata la richiesta
             type: "GET", 
             data: { search: ricerca }, 
             

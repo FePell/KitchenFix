@@ -17,7 +17,6 @@
                     <button type="submit">Cerca</button>
                 </form>
             </div>
-
             <p class="search-error" id="search-error">
                 @if(!empty($searchError))
                     {{ $searchError }}
