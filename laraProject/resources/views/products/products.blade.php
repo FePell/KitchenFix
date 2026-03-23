@@ -28,7 +28,7 @@
             {{-- Lista dei Prodotti --------------------------------------------------------- --}}
             <div class="products-main" id="products-container">
                 @if(!isset($products) || $products->count() === 0)
-                    <p class="no-products">Nessun prodhgvhjvto trovato.</p>
+                    <p class="no-products">Nessun prodotto trovato.</p>
                 @else
                     <div class="products-grid">
                         @foreach($products as $product)

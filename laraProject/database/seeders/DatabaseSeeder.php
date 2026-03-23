@@ -6,13 +6,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-//Il file Seeder serve solo per inserire dati iniziali nel database quando si esegue php artisan db:seed
-//Il Seeder non si aggiorna quando si modificano i dati dal sito (es. Modifica/Elimina X)
-//Il Seeder è solo uno script di inserimento iniziale dei dati nel database
-
-/*Se eseguiamo php artisan migrate:fresh --seed, verranno cancellate tutte le tabelle ed eventuali
-modifiche fatte tramite il sito, e nel database verranno reinseriti i dati presenti nel Seeder*/
-
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
@@ -97,7 +90,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Prodotto ------------------------------------------------------------
-        $product1 = DB::table('products')->insertGetId([ //Chiedere perchè product1 e non productId
+        $product1 = DB::table('products')->insertGetId([ 
             'name' => 'Cappa Glem Gas',
             'image' => 'cappa1.png',
             'description' => 'Comandi a pulsante 1 motore, aspirazione 498 m3/h, filtro metallico antigrasso lavabile in lavastoviglie, filtri carbone 3 velocità 2 lampade led da 4 W Rumorosità 67 db(A).',

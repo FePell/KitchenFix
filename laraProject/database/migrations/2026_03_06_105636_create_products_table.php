@@ -10,7 +10,7 @@ return new class extends Migration
     //Prodotto --------------------------------------------------------------------- 
     public function up(): void
     {
-       Schema::create('products', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();

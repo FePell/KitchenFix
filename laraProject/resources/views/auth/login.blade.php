@@ -10,7 +10,7 @@
 
             {{-- Errori login --------------------------------------------------------------- --}}
             @if ($errors->any())
-                <div style="color:red; margin-bottom:10px;">
+                <div class="error-message">
                     {{ $errors->first() }}
                 </div>
             @endif

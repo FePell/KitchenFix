@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 $serverConnect = '/home/grp_67/www/include/connect.php';
 
 if (file_exists($serverConnect)) {
-    require_once $serverConnect; // server (definisce $HOST, $DB, $USER, $PASSWORD)
+    require_once $serverConnect; // Server (definisce $HOST, $DB, $USER, $PASSWORD)
 } else {
     //Fallback locale
     $HOST = '127.0.0.1';

@@ -1,11 +1,8 @@
 <?php
 
-//Le route sono solo punti di accesso, la logica deve essere gestita dai controller
-
 use Illuminate\Support\Facades\Route;
-//Generale
+//Controller livello 1-2 - Utente e Tecnico
 use App\Http\Controllers\HomeController;
-//Controller livello 1-2 - Guest e Tecnico
 use App\Http\Controllers\ProductController;
 //Controller livello 3 - Staff
 use App\Http\Controllers\StaffProductController;
@@ -14,11 +11,10 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminTechnicianController;
 use App\Http\Controllers\AdminCenterController;
 
-//Generale -----------------------------------------------------------------------------------]
-Route::get('/', [HomeController::class, 'index']) //Il simbolo / rappresenta la homepage
+//Sito base - Livello 1-2  -------------------------------------------------------------------]
+Route::get('/', [HomeController::class, 'index']) // / = homepage
     ->name('home'); 
 
-//Utente - Livello 1 -------------------------------------------------------------------------]
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index'); //Lista prodotti
 

@@ -15,7 +15,7 @@ class AdminTechnicianController extends Controller
     {
         $technicianType = $request->query('technicianType', 'staff');
 
-        $staffTechnician = StaffTechnician::all();
+        $staffTechnician = StaffTechnician::with('products')->get();
         $assistanceTechnician = AssistanceTechnician::all();
 
         return view('admin.technicians.technicians', compact('staffTechnician', 'assistanceTechnician', 'technicianType'));
@@ -90,6 +90,7 @@ class AdminTechnicianController extends Controller
 
     public function destroyStaff(StaffTechnician $technician) //Rimuove tecnico dello staff dal database ---------------------------]
     { 
+        $technician->user->delete();
         $technician->delete();
         return redirect()->route('admin.technicians', ['technicianType' => 'staff']);
     }
@@ -170,6 +171,7 @@ class AdminTechnicianController extends Controller
 
     public function destroyAssistance(AssistanceTechnician $technician) //Rimuove tecnico di assistenza dal database ---------------]
     {
+        $technician->user->delete();
         $technician->delete();
         return redirect()->route('admin.technicians', ['technicianType' => 'assistance']);  
     }

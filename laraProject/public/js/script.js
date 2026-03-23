@@ -1,50 +1,39 @@
 
-//Funzione per confermare l'eliminazione di un elemento 
-//(prodotto, centro, tecnico, malfunzionamento)
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".delete-form").forEach(function(form) {
-        form.addEventListener("submit", function(e) {
-
-            if (!confirm("Sei sicuro di voler eliminare questo elemento?")) {
-                e.preventDefault();
-            }
-            
-        });
-    });
-});
-
-
-//Funzione con AJAX per la ricerca dei prodotti
-//Quando l'utente scrive nella barra di ricerca e clicca su Cerca, 
-//manda una richiesta al server, che aggiorna i prodotti senza ricaricare la pagina.
-
 $(function () { //Esegue questo codice quando la pagina è pronta
 
+    //Conferma eliminazione di un elemento 
+    //(prodotto, centro, tecnico, malfunzionamento)
+    $('.delete-form').on('submit', function(e) {
+        if (!confirm("Sei sicuro di voler eliminare questo elemento?")) {
+            e.preventDefault();
+        }
+    });
+
+    //Ricerca prodotti AJAX 
     $('#search-form').on('submit', function (e) { //Blocca submit del form
         e.preventDefault();
 
-        let ricerca = $('#search').val(); //Prende il testo scritto dall'utente
+        let ricerca = $('#search').val(); 
 
         $.ajax({ //Chiamata AJAX - Invia richiesta al server senza ricaricare la pagina
             url: "/products", //Dove viene mandata la richiesta
-            type: "GET", //Tipo di richiesta
-            data: { search: ricerca }, //Dati che vengono inviati al server
+            type: "GET", 
+            data: { search: ricerca }, 
             
-            success: function (response) { //Il server Laravel restituisce (response) ciò che ha trovato
+            success: function (response) { 
                 
                 let html = ''; //Variabile dove verranno costruiti i prodotti
 
                 $('#search-error').text(''); //Cancella eventuali errori precedenti
 
-                if (response.searchError) { //Se viene generato un errore (es. uso sbagliato di *)
-                    $('#search-error').text(response.searchError); //Si mostra nella pagina
+                if (response.searchError) {
+                    $('#search-error').text(response.searchError); 
                 }
 
-                if (response.products.length > 0) { //Controlla se ci sono dei risultati
+                if (response.products.length > 0) { 
                     html += '<div class="products-grid">';
 
-                    response.products.forEach(function (product) { //Per ogni prodotto si costruisce la card
+                    response.products.forEach(function (product) { 
                         html += `
                             <article class="product-card">
                                 <div class="product-card-image">

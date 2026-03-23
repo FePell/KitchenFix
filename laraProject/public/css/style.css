@@ -304,6 +304,10 @@ body{
 .auth-btn:active {
     transform: scale(0.98);
 }
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
 /* ---------------------------------------------------------------- */
 
 /* Navbar Home ---------------------------------------------------- */

@@ -26,11 +26,11 @@
 
             {{-- Bottone Aggiungi ----------------------------------------------------------- --}}
             @if($technicianType === 'staff')
-                <a href="{{ route('admin.technicians.staff-create', ['technicianType' => 'staff']) }}" class="admin-btn-add">
+                <a href="{{ route('admin.technicians.staff-create') }}" class="admin-btn-add">
                     + Aggiungi staff
                 </a>
             @else
-                <a href="{{ route('admin.technicians.assistance-create', ['technicianType' => 'assistance']) }}" class="admin-btn-add">
+                <a href="{{ route('admin.technicians.assistance-create') }}" class="admin-btn-add">
                     + Aggiungi tecnico
                 </a>
             @endif

@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index(Request $request) //Lista prodotti -----------------------------------------------------------------------]
     {
-        $query = Product::with('malfunctions');
+        $query = Product::query();
         $searchError = null;
 
         if ($request->filled('search')) {
@@ -47,17 +47,8 @@ class ProductController extends Controller
 
         //AJAX ---------------------------------------------------------------------------------------------------------------------]
         if ($request->ajax()) {
-            $productsAjax = $products->map(function ($product) {
-                return [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'description' => $product->description,
-                    'image' => $product->image,
-                ];
-            });
-
             return response()->json([
-                'products' => $productsAjax,
+                'products' => $products,
                 'searchError' => $searchError,
             ]);
         }
@@ -72,7 +63,7 @@ class ProductController extends Controller
         return view('products.product-details', compact('product'));
     }
 
-    public function malfunctions(Request $request, Product $product) //Malfunziomenti prodotto -------------------------------------]
+    public function malfunctions(Request $request, Product $product) //Malfunzionamenti prodotto -----------------------------------]
     {
         $query = $product->malfunctions();
 

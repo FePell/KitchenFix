@@ -88,7 +88,7 @@
             <div class="contatti-info">
                 <span>Email: info@kitchenfix.it</span>
                 <span class="divider">|</span>
-                <span>Telefono: +39 000 000 000</span>
+                <span>Telefono: +39 071 676 767</span>
             </div>
 
         </div>

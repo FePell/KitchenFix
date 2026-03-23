@@ -15,7 +15,6 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->foreignId('staff_technician_id')->constrained('staff_technicians')->onDelete('cascade');
             $table->timestamps();
-
             $table->unique(['product_id', 'staff_technician_id']);
         });
     }
