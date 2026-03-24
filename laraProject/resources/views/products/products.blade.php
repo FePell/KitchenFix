@@ -34,7 +34,7 @@
                             <article class="product-card">
 
                                 <div class="product-card-image">
-                                    <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}">
+                                    <img src="images/{{ $product->image }}" alt="{{ $product->name }}">
                                 </div>
 
                                 <div class="product-card-content">
