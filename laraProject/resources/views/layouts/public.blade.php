@@ -25,6 +25,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             window.searchURL = "{{ route('products.index') }}";
+            window.baseURL = "{{ url('')}}";
         </script>
         <script src="{{ asset('js/script.js') }}"></script>
     </body>

@@ -37,13 +37,13 @@ $(function () { //Esegue questo codice quando la pagina è pronta
                         html += `
                             <article class="product-card">
                                 <div class="product-card-image">
-                                    <img src="/images/${product.image}" alt="${product.name}">
+                                    <img src="${window.baseURL}/images/${product.image}" alt="${product.name}">
                                 </div>
 
                                 <div class="product-card-content">
                                     <h3 class="product-title">${product.name}</h3>
 
-                                    <a href="/products/${product.id}" class="product-details-btn">
+                                    <a href="${window.baseURL}/products/${product.id}" class="product-details-btn">
                                         Visualizza dettagli
                                     </a>
                                 </div>
