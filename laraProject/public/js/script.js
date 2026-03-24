@@ -16,7 +16,7 @@ $(function () { //Esegue questo codice quando la pagina è pronta
         let ricerca = $('#search').val(); 
 
         $.ajax({ //Chiamata AJAX - Invia richiesta al server senza ricaricare la pagina
-            url: window.searchURL, //Dove viene mandata la richiesta
+            url: "products", //Dove viene mandata la richiesta
             type: "GET", 
             data: { search: ricerca }, 
             
@@ -37,13 +37,13 @@ $(function () { //Esegue questo codice quando la pagina è pronta
                         html += `
                             <article class="product-card">
                                 <div class="product-card-image">
-                                    <img src="${window.baseURL}/images/${product.image}" alt="${product.name}">
+                                    <img src="images/${product.image}" alt="${product.name}">
                                 </div>
 
                                 <div class="product-card-content">
                                     <h3 class="product-title">${product.name}</h3>
 
-                                    <a href="${window.baseURL}/products/${product.id}" class="product-details-btn">
+                                    <a href="products/${product.id}" class="product-details-btn">
                                         Visualizza dettagli
                                     </a>
                                 </div>
